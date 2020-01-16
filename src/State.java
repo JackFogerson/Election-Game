@@ -2,12 +2,23 @@
 public class State {
 	int ECV;
 	int Pop;
-	int turnout;
-	int Rep;
-	int Dem;
-	int Lib;
-	int Green;
-	int McM;
+	int Turnout;
+	double Rep;
+	double Dem;
+	double Lib;
+	double Green;
+	double McM;
+	
+	public State(int ecv, int pop, int turnout, double r, double d, double l, double g, double m) {
+		this.ECV = ecv;
+		this.Pop = pop;
+		this.Turnout = turnout;
+		this.Rep = r;
+		this.Dem = d;
+		this.Lib = l;
+		this.Green = g;
+		this.McM = m;
+	}
 	
 	public void changeRep(int r) {
 		Rep += r;
@@ -29,23 +40,23 @@ public class State {
 		McM += m;
 	}
 	
-	public int getRep() {
+	public double getRep() {
 		return Rep;
 	}
 	
-	public int getDem() {
+	public double getDem() {
 		return Dem;
 	}
 	
-	public int getLib() {
+	public double getLib() {
 		return Lib;
 	}
 
-	public int getGreen() {
+	public double getGreen() {
 		return Green;
 	}
 	
-	public int getMcM() {
+	public double getMcM() {
 		return McM;
 	}
 	
@@ -54,7 +65,7 @@ public class State {
 	}
 	
 	public int getTurnout() {
-		return turnout;
+		return Turnout;
 	}
 	
 	public int getPop() {
