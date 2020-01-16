@@ -81,6 +81,6 @@ public class StartScreen {
 			JOptionPane.showMessageDialog(null, "McMullin Message: To Be Added");
 		}
 		startScreenFrame.dispose();
-		new MainPage();
+		new MainPage(candidate);
 	}
 }
