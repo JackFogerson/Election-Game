@@ -3,6 +3,7 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * @title	StartScreen.java
@@ -44,11 +45,13 @@ public class StartScreen {
 		startScreenFrame.add(McMullinButton);
 
 
-		//Make an action listener for both create account and log in
-		//Gets user input and sends that text to those methods
-		//createAccountButton.addActionListener(event -> createAccount(usernameBox.getText(), passwordBox.getText()));
-		//logInButton.addActionListener(event -> logIn(usernameBox.getText(), passwordBox.getText()));
-		
+		//Make an action listener for candidate buttons
+		TrumpButton.addActionListener(event -> candidateChoose("Trump"));
+		ClintonButton.addActionListener(event -> candidateChoose("Clinton"));
+		JohnsonButton.addActionListener(event -> candidateChoose("Johnson"));
+		SteinButton.addActionListener(event -> candidateChoose("Stein"));
+		McMullinButton.addActionListener(event -> candidateChoose("McMullin"));
+
 		// Handle rest of the frame.
 		startScreenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		startScreenFrame.setSize(400, 100);
@@ -57,5 +60,27 @@ public class StartScreen {
 		startScreenFrame.setLocation(d.width/2-startScreenFrame.getSize().width/2, d.height/2-startScreenFrame.getSize().height/2);
 		startScreenFrame.pack();
 		startScreenFrame.setVisible(true);
+	}
+	
+	//Method once candidate has been chosen
+	private void candidateChoose(String c) {
+		candidate = c;
+		if(candidate == "Trump") {
+			JOptionPane.showMessageDialog(null, "Trump Message: To Be Added");
+		}
+		else if(candidate == "Clinton") {
+			JOptionPane.showMessageDialog(null, "Clinton Message: To Be Added");
+		}
+		else if(candidate == "Johnson") {
+			JOptionPane.showMessageDialog(null, "Johnson Message: To Be Added");
+		}
+		else if(candidate == "Stein") {
+			JOptionPane.showMessageDialog(null, "Stein Message: To Be Added");
+		}
+		else if(candidate == "McMullin") {
+			JOptionPane.showMessageDialog(null, "McMullin Message: To Be Added");
+		}
+		startScreenFrame.dispose();
+		new MainPage();
 	}
 }
