@@ -29,7 +29,7 @@ public class State {
 	}
 	
 	public void changeLib(double l) {
-		Lib += l;
+		this.Lib += l;
 	}
 	
 	public void changeGreen(double g) {

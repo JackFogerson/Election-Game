@@ -40,7 +40,7 @@ public class MainPage {
 		JButton restartButton = new JButton("Restart");
 		
 		pollButton.addActionListener(event -> pollFrame());
-		//removeAccountButton.addActionListener(event -> logOut());
+		campaignButton.addActionListener(event -> test());
 		restartButton.addActionListener(event -> logOut());
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -119,6 +119,13 @@ public class MainPage {
 		mainFrame.dispose();
 		new StartScreen();
 		return 1;
+	}
+	
+	public void test() {
+		s.California.changeLib(.06);
+		s.California.changeRep(-.04);
+		s.California.changeDem(-.01);
+		s.California.changeMcM(.01);
 	}
 	
 }
