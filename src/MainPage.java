@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,11 +30,14 @@ public class MainPage {
 		
 		GridBagConstraints c = new GridBagConstraints();
 		
-		JButton pollButton = new JButton("Look at Polls");
+		Statistics s = new Statistics();
+		JButton pollButton = new JButton("Current Polls");
 		JButton campaignButton = new JButton("Start campaigning!");
 		JButton restartButton = new JButton("Restart");
 		
-		//pollButton.addActionListener(event -> logOut());
+		pollButton.addActionListener(event -> JOptionPane.showMessageDialog(null, 
+				"Trump: " + s.getPoll("Trump") + "%" + "\n" + "Clinton: " + s.getPoll("Clinton") + "%" + "\n" + "Johnson: " + s.getPoll("Johnson") + "%" + "\n" + "Stein: " + s.getPoll("Stein") + "%" + "\n" + "McMullin: " + s.getPoll("McMullin") + "%" + "\n")
+		);
 		//removeAccountButton.addActionListener(event -> logOut());
 		restartButton.addActionListener(event -> logOut());
 		
@@ -69,7 +73,7 @@ public class MainPage {
 	}
 	
 	public int logOut(){
-		JOptionPane.showMessageDialog(null, "Oof");
+		JOptionPane.showMessageDialog(null, "Oof!");
 		mainFrame.dispose();
 		new StartScreen();
 		return 1;
