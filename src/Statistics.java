@@ -1,10 +1,11 @@
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Statistics {
-	State Alabama = new State(9, 100, 1, .8, .01, .17, .01, .01);
-	State Alaska = new State(3, 0, 0, 0, 0, 0, 0, 0);
-	State Arizona = new State(11, 0, 0, 0, 0, 0, 0, 0);
-	State Arkansas = new State(6, 0, 0, 0, 0, 0, 0, 0);
+	State Alabama = new State(9, 3741806, .6, .526, .389, .067, .013, 0);
+	State Alaska = new State(3, 550189, .57, .463, .372, .147, .045, 0);
+	State Arizona = new State(11, 5109792, .71, .453, .448, .085, .027, .015);
+	State Arkansas = new State(6, 2259350, .61, .509, .388, .084, .026, .039);
 	State California = new State(55, 0, 0, 0, 0, 0, 0, 0);
 	State Colorado = new State(9, 0, 0, 0, 0, 0, 0, 0);
 	State Connecticut = new State(7, 0, 0, 0, 0, 0, 0, 0);
@@ -119,18 +120,24 @@ public class Statistics {
 		accounts.add(Wyoming);
 	}
 	
-	public double getPoll(String c) {
-		double p = 0;
+	public String getPoll(String c) {
+		double poll = 0;
+		double totVoters = 0;
+		double voters = 0;
+		double j = 0;
 		for(int i=0;i<accounts.size();i++) {
-			double j = 0;
 			if(c == "Trump") { j = accounts.get(i).getRep(); }
 			if(c == "Clinton") { j = accounts.get(i).getDem(); }
 			if(c == "Johnson") { j = accounts.get(i).getLib(); }
 			if(c == "Stein") { j = accounts.get(i).getGreen(); }
 			if(c == "McMullin") { j = accounts.get(i).getMcM(); }
-			p += (j*(accounts.get(i).getTurnout() * accounts.get(i).getPop()));
+			totVoters += accounts.get(i).getTurnout() * accounts.get(i).getPop();
+			voters = accounts.get(i).getTurnout() * accounts.get(i).getPop();
+			poll += j * voters;
 		}
-		return p;
+		poll = (poll/totVoters)*100;
+	    DecimalFormat df2 = new DecimalFormat("#.##");
+		return df2.format(poll);
 	}
 	
 	public ArrayList<State> getStates(){

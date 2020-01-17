@@ -2,14 +2,14 @@
 public class State {
 	int ECV;
 	int Pop;
-	int Turnout;
+	double Turnout;
 	double Rep;
 	double Dem;
 	double Lib;
 	double Green;
 	double McM;
 	
-	public State(int ecv, int pop, int turnout, double r, double d, double l, double g, double m) {
+	public State(int ecv, int pop, double turnout, double r, double d, double l, double g, double m) {
 		this.ECV = ecv;
 		this.Pop = pop;
 		this.Turnout = turnout;
@@ -64,7 +64,7 @@ public class State {
 		return ECV;
 	}
 	
-	public int getTurnout() {
+	public double getTurnout() {
 		return Turnout;
 	}
 	
