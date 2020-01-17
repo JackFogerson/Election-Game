@@ -1,6 +1,8 @@
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -66,10 +68,15 @@ public class StartScreen {
 	private void candidateChoose(String c) {
 		candidate = c;
 		if(candidate == "Trump") {
-			JOptionPane.showMessageDialog(null, "Trump Message: To Be Added");
+			ImageIcon rp = new ImageIcon("RP_Photo.jpg");
+			JOptionPane.showMessageDialog(null, "Donald Trump: To the surprise of many, you were able to outlast and outfight 15 other candidates to accept the Republican nomination."
+					+ "\n" + "A controversial candidate, to say the least, now you must either move to a more unifying message for the general election "
+					+ "\n" + "or continue as you had during the nomination in hopes of using your motified base to carry you to victory. While you may seem like the underdog, Hillary "
+					+ "\n" + "Clinton is a candidate with many exploitable flaws. Good luck.", "Message from Reince Priebus", JOptionPane.INFORMATION_MESSAGE, rp);
 		}
 		else if(candidate == "Clinton") {
-			JOptionPane.showMessageDialog(null, "Clinton Message: To Be Added");
+			JOptionPane.showMessageDialog(null, "Hillary Clinton: Despite a unexpectidly brutal primary fight with Bernie Sanders, you were able to win the Democratic nomination."
+					+ "\n" + "Now you must pivot towards the general election against Donald Trump");
 		}
 		else if(candidate == "Johnson") {
 			JOptionPane.showMessageDialog(null, "Johnson Message: To Be Added");

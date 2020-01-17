@@ -2,20 +2,20 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Statistics {
-	State Alabama = new State(9, 3741806, .6, .526, .389, .067, .013, 0);
+	State Alabama = new State(9, 3741806, .6, .526, .389, .067, .014, 0);
 	State Alaska = new State(3, 550189, .57, .463, .372, .147, .045, 0);
-	State Arizona = new State(11, 5109792, .71, .453, .448, .085, .027, .015);
-	State Arkansas = new State(6, 2259350, .61, .509, .388, .084, .026, .039);
-	State California = new State(55, 0, 0, 0, 0, 0, 0, 0);
-	State Colorado = new State(9, 0, 0, 0, 0, 0, 0, 0);
-	State Connecticut = new State(7, 0, 0, 0, 0, 0, 0, 0);
-	State Delaware = new State(3, 0, 0, 0, 0, 0, 0, 0);
-	State Florida = new State(29, 0, 0, 0, 0, 0, 0, 0);
-	State Georgia = new State(16, 0, 0, 0, 0, 0, 0, 0);
+	State Arizona = new State(11, 5109792, .71, .453, .448, .085, .027, .014);
+	State Arkansas = new State(6, 2259350, .61, .509, .388, .084, .027, .037);
+	State California = new State(55, 29649348, .72, .362, .563, .059, .034, .005);
+	State Colorado = new State(9, 4109494, .69, .44, .479, .069, .018, .014);
+	State Connecticut = new State(7, 2821247, .73, .4, .513, .072, .034, .003);
+	State Delaware = new State(3, 731367, .62, .363, .544, .078, .032, .004);
+	State Florida = new State(29, 15839713, .72, .441, .49, .056, .017, 0);
+	State Georgia = new State(16, 7604061, .73, .475, .452, .072, .004, .008);
 	
-	State Hawaii = new State(4, 0, 0, 0, 0, 0, 0, 0);
-	State Idaho = new State(4, 0, 0, 0, 0, 0, 0, 0);
-	State Illinois = new State(20, 0, 0, 0, 0, 0, 0, 0);
+	State Hawaii = new State(4, 1111117, .55, .274, .634, .072, .057, 0);
+	State Idaho = new State(4, 1203384, .72, .527, .346, .108, .032, .177);
+	State Illinois = new State(20, 9892106, .67, .373, .542, .07, .026, .004);
 	State Indiana = new State(11, 0, 0, 0, 0, 0, 0, 0);
 	State Iowa = new State(6, 0, 0, 0, 0, 0, 0, 0);
 	State Kansas = new State(6, 0, 0, 0, 0, 0, 0, 0);
@@ -53,7 +53,7 @@ public class Statistics {
 	State Vermont = new State(3, 0, 0, 0, 0, 0, 0, 0);
 	State Virginia = new State(13, 0, 0, 0, 0, 0, 0, 0);
 	State Washington = new State(12, 0, 0, 0, 0, 0, 0, 0);
-	State Washington_D_C = new State(3, 0, 0, 0, 0, 0, 0, 0);
+	State Washington_D_C = new State(3, 543588, .62, .093, .825, .052, .045, 0);
 	State West_Virginia = new State(5, 0, 0, 0, 0, 0, 0, 0);
 	State Wisconsin = new State(10, 0, 0, 0, 0, 0, 0, 0);
 	

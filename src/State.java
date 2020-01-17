@@ -20,23 +20,23 @@ public class State {
 		this.McM = m;
 	}
 	
-	public void changeRep(int r) {
+	public void changeRep(double r) {
 		Rep += r;
 	}
 	
-	public void changeDem(int d) {
+	public void changeDem(double d) {
 		Dem += d;
 	}
 	
-	public void changeLib(int l) {
+	public void changeLib(double l) {
 		Lib += l;
 	}
 	
-	public void changeGreen(int g) {
+	public void changeGreen(double g) {
 		Green += g;
 	}
 	
-	public void changeMcM(int m) {
+	public void changeMcM(double m) {
 		McM += m;
 	}
 	
