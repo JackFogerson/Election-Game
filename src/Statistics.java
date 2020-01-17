@@ -132,4 +132,8 @@ public class Statistics {
 		}
 		return p;
 	}
+	
+	public ArrayList<State> getStates(){
+		return accounts;
+	}
 }
