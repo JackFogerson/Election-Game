@@ -16,48 +16,53 @@ public class Statistics {
 	State Hawaii = new State(4, 1111117, .55, .274, .634, .072, .057, 0);
 	State Idaho = new State(4, 1203384, .72, .527, .346, .108, .032, .177);
 	State Illinois = new State(20, 9892106, .67, .373, .542, .07, .026, .004);
-	State Indiana = new State(11, 0, 0, 0, 0, 0, 0, 0);
-	State Iowa = new State(6, 0, 0, 0, 0, 0, 0, 0);
-	State Kansas = new State(6, 0, 0, 0, 0, 0, 0, 0);
-	State Kentucky = new State(8, 0, 0, 0, 0, 0, 0, 0);
-	State Louisiana = new State(8, 0, 0, 0, 0, 0, 0, 0);
-	State Maine = new State(4, 0, 0, 0, 0, 0, 0, 0);
-	State Maryland = new State(10, 0, 0, 0, 0, 0, 0, 0);
+	State Indiana = new State(11, 5014928, 0, .479, .423, .099, 0, 0);
+	State Iowa = new State(6, 2310467, 0, .417, .477, .094, 0, 0);
+	State Kansas = new State(6, 2181355, 0, .465, .411, .108, 0, 0);
+	State Kentucky = new State(8, 3400843, 0, .511, .394, .078, 0, 0);
+	State Louisiana = new State(8, 3536183, 0, .519, .39, .073, 0, 0);
+	State Maine = new State(2, 1071112, 0, .391, .491, .105, 0, 0);
+	State Maine1 = new State(1, 5035556, 0, .363, .522, .1, 0, 0);
+	State Maine2 = new State(1, 5035556, 0, .422, .457, .11, 0, 0);
+	State Maryland = new State(10, 4625863, 0, .306, .604, .073, 0, 0);
 	
-	State Massachusetts = new State(11, 0, 0, 0, 0, 0, 0, 0);
-	State Michigan = new State(16, 0, 0, 0, 0, 0, 0, 0);
-	State Minnesota = new State(10, 0, 0, 0, 0, 0, 0, 0);
-	State Mississippi = new State(6, 0, 0, 0, 0, 0, 0, 0);
-	State Missouri = new State(10, 0, 0, 0, 0, 0, 0, 0);
-	State Montana = new State(3, 0, 0, 0, 0, 0, 0, 0);
-	State Nebraska = new State(5, 0, 0, 0, 0, 0, 0, 0);
-	State Nevada = new State(6, 0, 0, 0, 0, 0, 0, 0);
-	State New_Hampshire = new State(4, 0, 0, 0, 0, 0, 0, 0);
-	State New_Jersey = new State(14, 0, 0, 0, 0, 0, 0, 0);
+	State Massachusetts = new State(11, 5354940, 0, .322, .573, .088, 0, 0);
+	State Michigan = new State(16, 7686087, 0, .384, .498, .104, 0, 0);
+	State Minnesota = new State(10, 4175347, 0, .399, .494, .095, 0, 0);
+	State Mississippi = new State(6, 2262810, 0, .485, .436, .063, 0, 0);
+	State Missouri = new State(10, 4670966, 0, .455, .44, .092, 0, 0);
+	State Montana = new State(3, 798555, 0, .465, .385, .15, 0, 0);
+	State Nebraska = new State(2, 1414894, 0, .503, .38, .101, 0, 0);
+	State Nebraska1 = new State(1, 471631, 0, .484, .4, .1, 0, 0);
+	State Nebraska2 = new State(1, 471631, 0, .449, .443, .093, 0, 0);
+	State Nebraska3 = new State(1, 471631, 0, .575, .295, .109, 0, 0);
+	State Nevada = new State(6, 2175874, 0, .428, .477, .081, 0, 0);
+	State New_Hampshire = new State(4, 1035684, 0, .419, .479, .09, 0, 0);
+	State New_Jersey = new State(14, 6926094, 0, .398, .521, .068, 0, 0);
 	
-	State New_Mexico = new State(5, 0, 0, 0, 0, 0, 0, 0);
-	State New_York = new State(29, 0, 0, 0, 0, 0, 0, 0);
-	State North_Carolina = new State(15, 0, 0, 0, 0, 0, 0, 0);
-	State North_Dakota = new State(3, 0, 0, 0, 0, 0, 0, 0);
-	State Ohio = new State(18, 0, 0, 0, 0, 0, 0, 0);
-	State Oklahoma = new State(7, 0, 0, 0, 0, 0, 0, 0);
-	State Oregon = new State(7, 0, 0, 0, 0, 0, 0, 0);
-	State Pennsylvannia = new State(20, 0, 0, 0, 0, 0, 0, 0);
-	State Rhode_Island = new State(4, 0, 0, 0, 0, 0, 0, 0);
-	State South_Carolina = new State(9, 0, 0, 0, 0, 0, 0, 0);
+	State New_Mexico = new State(5, 1583623, 0, .37, .475, .142, 0, 0);
+	State New_York = new State(29, 15517321, 0, .354, .561, .069, 0, 0);
+	State North_Carolina = new State(15, 7656415, 0, .46, .479, .061, 0, 0);
+	State North_Dakota = new State(3, 570955, 0, .482, .396, .107, 0, 0);
+	State Ohio = new State(18, 8955859, 0, .428, .464, .096, 0, 0);
+	State Oklahoma = new State(7, 2925352, 0, .566, .352, .082, 0, 0);
+	State Oregon = new State(7, 3112217, 0, .401, .493, .093, 0, 0);
+	State Pennsylvania = new State(20, 10086316, 0, .417, .482, .089, 0, 0);
+	State Rhode_Island = new State(4, 842321, 0, .341, .553, .09, 0, 0);
+	State South_Carolina = new State(9, 3747734, 0, .474, .442, .069, 0, 0);
 	
-	State South_Dakota = new State(3, 0, 0, 0, 0, 0, 0, 0);
-	State Tennessee = new State(11, 0, 0, 0, 0, 0, 0, 0);
-	State Texas = new State(38, 0, 0, 0, 0, 0, 0, 0);
-	State Utah = new State(6, 0, 0, 0, 0, 0, 0, 0);
-	State Vermont = new State(3, 0, 0, 0, 0, 0, 0, 0);
-	State Virginia = new State(13, 0, 0, 0, 0, 0, 0, 0);
-	State Washington = new State(12, 0, 0, 0, 0, 0, 0, 0);
+	State South_Dakota = new State(3, 642768, 0, .481, .403, .1, 0, 0);
+	State Tennessee = new State(11, 5054826, 0, .505, .411, .068, 0, 0);
+	State Texas = new State(38, 19841344, 0, .489, .431, .065, 0, 0);
+	State Utah = new State(6, 2038787, 0, .466, .391, .124, 0, 0);
+	State Vermont = new State(3, 504976, 0, .306, .582, .094, 0, 0);
+	State Virginia = new State(13, 6457174, 0, .426, .49, .073, 0, 0);
+	State Washington = new State(12, 5458809, 0, .383, .512, .091, 0, 0);
 	State Washington_D_C = new State(3, 543588, .62, .093, .825, .052, .045, 0);
-	State West_Virginia = new State(5, 0, 0, 0, 0, 0, 0, 0);
-	State Wisconsin = new State(10, 0, 0, 0, 0, 0, 0, 0);
+	State West_Virginia = new State(5, 1470179, 0, .553, .348, .083, 0, 0);
+	State Wisconsin = new State(10, 4457375, 0, .407, .503, .077, 0, 0);
 	
-	State Wyoming = new State(3, 0, 0, 0, 0, 0, 0, 0);
+	State Wyoming = new State(3, 445830, 0, .549, .304, .126, 0, 0);
 
 	ArrayList<State> accounts = new ArrayList<State>();
 	
@@ -102,7 +107,7 @@ public class Statistics {
 		accounts.add(Ohio);
 		accounts.add(Oklahoma);
 		accounts.add(Oregon);
-		accounts.add(Pennsylvannia);
+		accounts.add(Pennsylvania);
 		accounts.add(Rhode_Island);
 		accounts.add(South_Carolina);
 		
@@ -141,6 +146,11 @@ public class Statistics {
 	}
 	
 	public int getECV(String c) {
+		accounts.add(Maine1);
+		accounts.add(Maine2);
+		accounts.add(Nebraska1);
+		accounts.add(Nebraska2);
+		accounts.add(Nebraska3);
 		int ecv = 0;
 		for(int i=0;i<accounts.size();i++) {
 			if(c == "Trump") {
@@ -169,6 +179,11 @@ public class Statistics {
 				}
 			}
 		}
+		accounts.remove(Maine1);
+		accounts.remove(Maine2);
+		accounts.remove(Nebraska1);
+		accounts.remove(Nebraska2);
+		accounts.remove(Nebraska3);
 		return ecv;
 	}
 	
