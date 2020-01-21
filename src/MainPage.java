@@ -2,14 +2,9 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
-
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 /**
  * @title	MainPage.java
@@ -29,7 +24,7 @@ public class MainPage {
 	
 	public void launchFrame(){
 		// Instantiate the frame
-		mainFrame = new JFrame("JackPass - " + candidate);
+		mainFrame = new JFrame("2016 - " + candidate + " Portal");
 		mainFrame.setLayout(new GridBagLayout());
 		
 		GridBagConstraints c = new GridBagConstraints();
@@ -40,7 +35,7 @@ public class MainPage {
 		JButton restartButton = new JButton("Restart");
 		
 		pollButton.addActionListener(event -> pollFrame());
-		campaignButton.addActionListener(event -> test());
+		campaignButton.addActionListener(event -> results());
 		restartButton.addActionListener(event -> logOut());
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -121,11 +116,9 @@ public class MainPage {
 		return 1;
 	}
 	
-	public void test() {
-		s.California.changeLib(.06);
-		s.California.changeRep(-.04);
-		s.California.changeDem(-.01);
-		s.California.changeMcM(.01);
+	public void results() {
+		mainFrame.dispose();
+		new ResultsPage();
 	}
 	
 }

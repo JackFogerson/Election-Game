@@ -140,6 +140,38 @@ public class Statistics {
 		return df2.format(poll);
 	}
 	
+	public int getECV(String c) {
+		int ecv = 0;
+		for(int i=0;i<accounts.size();i++) {
+			if(c == "Trump") {
+				if(accounts.get(i).getRep() > accounts.get(i).getDem() && accounts.get(i).getRep() > accounts.get(i).getLib() && accounts.get(i).getRep() > accounts.get(i).getGreen() && accounts.get(i).getRep() > accounts.get(i).getMcM()){ 
+					ecv += accounts.get(i).getECV();
+				}
+			}
+			if(c == "Clinton") {
+				if(accounts.get(i).getDem() > accounts.get(i).getRep() && accounts.get(i).getDem() > accounts.get(i).getLib() && accounts.get(i).getDem() > accounts.get(i).getGreen() && accounts.get(i).getDem() > accounts.get(i).getMcM()){ 
+					ecv += accounts.get(i).getECV();
+				}
+			}
+			if(c == "Johnson") {
+				if(accounts.get(i).getLib() > accounts.get(i).getRep() && accounts.get(i).getLib() > accounts.get(i).getDem() && accounts.get(i).getLib() > accounts.get(i).getGreen() && accounts.get(i).getLib() > accounts.get(i).getMcM()){ 
+					ecv += accounts.get(i).getECV();
+				}
+			}
+			if(c == "Stein") {
+				if(accounts.get(i).getGreen() > accounts.get(i).getRep() && accounts.get(i).getGreen() > accounts.get(i).getLib() && accounts.get(i).getGreen() > accounts.get(i).getDem() && accounts.get(i).getGreen() > accounts.get(i).getMcM()){ 
+					ecv += accounts.get(i).getECV();
+				}
+			}
+			if(c == "McMullin") {
+				if(accounts.get(i).getMcM() > accounts.get(i).getRep() && accounts.get(i).getMcM() > accounts.get(i).getLib() && accounts.get(i).getMcM() > accounts.get(i).getGreen() && accounts.get(i).getMcM() > accounts.get(i).getDem()){ 
+					ecv += accounts.get(i).getECV();
+				}
+			}
+		}
+		return ecv;
+	}
+	
 	public ArrayList<State> getStates(){
 		return accounts;
 	}
