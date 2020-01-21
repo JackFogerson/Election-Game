@@ -29,13 +29,12 @@ public class MainPage {
 		
 		GridBagConstraints c = new GridBagConstraints();
 		
-		Statistics s = new Statistics();
 		JButton pollButton = new JButton("Current Polls");
 		JButton campaignButton = new JButton("Start campaigning!");
 		JButton restartButton = new JButton("Restart");
 		
 		pollButton.addActionListener(event -> pollFrame());
-		campaignButton.addActionListener(event -> results());
+		campaignButton.addActionListener(event -> results(s));
 		restartButton.addActionListener(event -> logOut());
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -116,9 +115,9 @@ public class MainPage {
 		return 1;
 	}
 	
-	public void results() {
+	public void results(Statistics s) {
 		mainFrame.dispose();
-		new ResultsPage();
+		new ResultsPage(s);
 	}
 	
 }

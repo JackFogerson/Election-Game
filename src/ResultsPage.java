@@ -14,7 +14,8 @@ public class ResultsPage {
 	JFrame mainFrame;
 	Statistics s = new Statistics();
 	
-	public ResultsPage(){
+	public ResultsPage(Statistics stat){
+		this.s = stat;
 		launchFrame();
 	}
 	
