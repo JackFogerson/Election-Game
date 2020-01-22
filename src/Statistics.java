@@ -30,32 +30,30 @@ public class Statistics {
 	State Michigan = new State(16, 7686087, .6, .384, .498, .104, .031, .005);
 	State Minnesota = new State(10, 4175347, .71, .399, .494, .095, .031, .045);
 	State Mississippi = new State(6, 2262810, .5, .485, .436, .063, .016, 0);
-	//TODO
-	State Missouri = new State(10, 4670966, .63, .455, .44, .092, 0, 0);
-	State Montana = new State(3, 798555, .71, .465, .385, .15, 0, 0);
-	State Nebraska = new State(2, 1414894, .68, .503, .38, .101, 0, 0);
-	State Nebraska1 = new State(1, 471631, .68, .484, .4, .1, 0, 0);
-	State Nebraska2 = new State(1, 471631, .68, .449, .443, .093, 0, 0);
-	State Nebraska3 = new State(1, 471631, .68, .575, .295, .109, 0, 0);
+	State Missouri = new State(10, 4670966, .63, .455, .44, .092, .024, .007);
+	State Montana = new State(3, 798555, .71, .465, .385, .15, .043, .012);
+	State Nebraska = new State(2, 1414894, .68, .503, .38, .101, .023, 0);
+	State Nebraska1 = new State(1, 471631, .68, .484, .4, .1, .024, 0);
+	State Nebraska2 = new State(1, 471631, .68, .449, .443, .093, .024, 0);
+	State Nebraska3 = new State(1, 471631, .68, .575, .295, .109, .019, 0);
 	State Nevada = new State(6, 2175874, .73, .428, .477, .081, 0, 0);
-	State New_Hampshire = new State(4, 1035684, .72, .419, .479, .09, 0, 0);
-	State New_Jersey = new State(14, 6926094, .65, .398, .521, .068, 0, 0);
+	State New_Hampshire = new State(4, 1035684, .72, .419, .479, .09, .019, .003);
+	State New_Jersey = new State(14, 6926094, .65, .398, .521, .068, .035, 0);
 	
-	State New_Mexico = new State(5, 1583623, .59, .37, .475, .142, 0, 0);
-	State New_York = new State(29, 15517321, .65, .354, .561, .069, 0, 0);
-	State North_Carolina = new State(15, 7656415, .65, .46, .479, .061, 0, 0);
-	State North_Dakota = new State(3, 570955, .58, .482, .396, .107, 0, 0);
-	State Ohio = new State(18, 8955859, .68, .428, .464, .096, 0, 0);
+	State New_Mexico = new State(5, 1583623, .59, .37, .475, .142, .019, .011);
+	State New_York = new State(29, 15517321, .65, .354, .561, .069, .042, .004);
+	State North_Carolina = new State(15, 7656415, .65, .46, .479, .061, .006, 0);
+	State North_Dakota = new State(3, 570955, .58, .482, .396, .107, .019, 0);
+	State Ohio = new State(18, 8955859, .68, .428, .464, .096, .025, .007);
 	State Oklahoma = new State(7, 2925352, .46, .566, .352, .082, 0, 0);
-	State Oregon = new State(7, 3112217, .67, .401, .493, .093, 0, 0);
-	State Pennsylvania = new State(20, 10086316, .57, .417, .482, .089, 0, 0);
-	State Rhode_Island = new State(4, 842321, .57, .341, .553, .09, 0, 0);
-	State South_Carolina = new State(9, 3747734, .64, .474, .442, .069, 0, 0);
-	
+	State Oregon = new State(7, 3112217, .67, .401, .493, .093, .049, 0);
+	State Pennsylvania = new State(20, 10086316, .57, .417, .482, .089, .03, .004);
+	State Rhode_Island = new State(4, 842321, .57, .341, .553, .09, .038, .003);
+	State South_Carolina = new State(9, 3747734, .64, .474, .442, .069, .018, .029);
+
 	State South_Dakota = new State(3, 642768, .66, .481, .403, .1, 0, 0);
-	State Tennessee = new State(11, 5054826, .58, .505, .411, .068, 0, 0);
-	State Texas = new State(38, 19841344, .56, .489, .431, .065, 0, 0);
-	//END TODO
+	State Tennessee = new State(11, 5054826, .58, .505, .411, .068, .015, .012);
+	State Texas = new State(38, 19841344, .56, .489, .431, .065, .016, .01);
 	State Utah = new State(6, 2038787, .79, .379, .299, .112, .027, .189);
 	State Vermont = new State(3, 504976, .64, .306, .582, .094, .063, .006);
 	State Virginia = new State(13, 6457174, .69, .426, .49, .073, .017, .033);
