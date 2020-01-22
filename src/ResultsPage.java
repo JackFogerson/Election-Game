@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 
 public class ResultsPage {
 	JFrame mainFrame;
-	Statistics s = new Statistics();
+	Statistics s;
 	
 	public ResultsPage(Statistics stat){
 		this.s = stat;
@@ -23,9 +23,7 @@ public class ResultsPage {
 		// Instantiate the frame
 		mainFrame = new JFrame("2016 Results: ");
 		mainFrame.setLayout(new GridBagLayout());
-		
-		Statistics s = new Statistics();	
-		
+				
 		JTextField trumpResults = new JTextField("Trump: " + s.getPoll("Trump") + "%, " + s.getECV("Trump") + " ECV");
 		JTextField clintonResults = new JTextField("Clinton: " + s.getPoll("Clinton") + "%, " + s.getECV("Clinton") + " ECV");
 		JTextField johnsonResults = new JTextField("Johnson: " + s.getPoll("Johnson") + "%, " + s.getECV("Johnson") + " ECV");

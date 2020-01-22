@@ -34,7 +34,7 @@ public class MainPage {
 		JButton restartButton = new JButton("Restart");
 		
 		pollButton.addActionListener(event -> pollFrame());
-		campaignButton.addActionListener(event -> results(s));
+		campaignButton.addActionListener(event -> campaign(s));
 		restartButton.addActionListener(event -> logOut());
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -115,9 +115,9 @@ public class MainPage {
 		return 1;
 	}
 	
-	public void results(Statistics s) {
+	public void campaign(Statistics s) {
 		mainFrame.dispose();
-		new ResultsPage(s);
+		new Events(candidate,s);
 	}
 	
 }
