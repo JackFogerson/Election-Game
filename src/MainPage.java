@@ -3,6 +3,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 public class MainPage {
 	JFrame mainFrame;
 	String candidate;
+	State id;
 	Statistics s = new Statistics();
 	
 	public MainPage(String c){
@@ -72,16 +74,23 @@ public class MainPage {
 		// Instantiate the frame
 		JFrame pollFrame = new JFrame("Polls");
 		pollFrame.setLayout(new GridBagLayout());
+		String[] StateList = new String[s.accounts.size()];
+		for(int i=0; i<s.accounts.size(); i++) {
+			StateList[i] = ("" + s.accounts.get(i).getName());
+		}
+
 		
 		GridBagConstraints c = new GridBagConstraints();
 		
 		JButton pollButton = new JButton("National Polls");
 		JButton HomeButton = new JButton("Home");
-
+		JComboBox statesPoll = new JComboBox(StateList);
 				
 		pollButton.addActionListener(event -> JOptionPane.showMessageDialog(null, 
-				"Trump: " + s.getPoll("Trump") + "%" + "\n" + "Clinton: " + s.getPoll("Clinton") + "%" + "\n" + "Johnson: " + s.getPoll("Johnson") + "%" + "\n" + "Stein: " + s.getPoll("Stein") + "%" + "\n" + "McMullin: " + s.getPoll("McMullin") + "%" + "\n")
-		);
+				"Trump: " + s.getPoll("Trump") + "%" + "\n" + "Clinton: " + s.getPoll("Clinton") + "%"
+				+ "\n" + "Johnson: " + s.getPoll("Johnson") + "%" + "\n" + "Stein: " 
+				+ s.getPoll("Stein") + "%" + "\n" + "McMullin: " + s.getPoll("McMullin") + "%" + "\n"));
+		statesPoll.addActionListener(event -> statePoll((String) statesPoll.getSelectedItem(),s));
 		HomeButton.addActionListener(event -> pollFrame.dispose());
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -93,6 +102,13 @@ public class MainPage {
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 1;
+		c.gridy = 0;
+		c.ipady = 50;
+		c.weighty = 1;
+		pollFrame.add(statesPoll, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
 		c.gridy = 0;
 		c.ipady = 50;
 		c.weighty = 1;
@@ -108,6 +124,19 @@ public class MainPage {
 		pollFrame.setVisible(true);	
 	}
 	
+	public void statePoll(String state, Statistics s){
+		for(int i=0;i<s.accounts.size();i++) {
+			if(state.equals(s.accounts.get(i).getName())) {
+					id = s.accounts.get(i);
+					JOptionPane.showMessageDialog(null, 
+							"Trump: " + id.getRep() + "%" + "\n" + "Clinton: " + id.getDem() + "%"
+							+ "\n" + "Johnson: " + id.getLib() + "%" + "\n" + "Stein: " 
+							+ id.getGreen() + "%" + "\n" + "McMullin: " + id.getMcM() + "%" + "\n", state, JOptionPane.INFORMATION_MESSAGE, null);
+					break;
+			}
+		}		
+	}
+	
 	public int logOut(){
 		JOptionPane.showMessageDialog(null, "Oof!");
 		mainFrame.dispose();
@@ -118,6 +147,5 @@ public class MainPage {
 	public void campaign(Statistics s) {
 		mainFrame.dispose();
 		new Events(candidate,s);
-	}
-	
+	}	
 }
