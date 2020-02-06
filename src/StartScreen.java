@@ -1,6 +1,10 @@
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.io.File;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -30,6 +34,8 @@ public class StartScreen {
 		// Make the JFrame, and then make it a GridLayout.
 		startScreenFrame = new JFrame("2016 Showdown: Choose your candidate!");
 		startScreenFrame.setLayout(new GridLayout(3, 2));
+		
+		audio();     
 		
 		//Create all the parts necessary for the loginFrame
 		JButton TrumpButton = new JButton   ("                 Trump                    ");
@@ -71,15 +77,18 @@ public class StartScreen {
 					         "Donald Trump: To the surprise of most pundits, you were able to outlast and outfight 15 other candidates to accept the Republican nomination."
 					+ "\n" + "A controversial candidate, to say the least, now you must either move to a more unifying message for the general election or continue"
 					+ "\n" + "as you had during the nomination in hopes of using your motivated base to carry you to victory. While you may seem like the underdog, Hillary "
-					+ "\n" + "Clinton is a candidate with many exploitable flaws. The Republican Party is at your service. Good luck.", "Message from Reince Priebus", JOptionPane.INFORMATION_MESSAGE, rp);
+					+ "\n" + "Clinton is a candidate with many exploitable flaws. Pulling off a win would be a great upset and allow you to change politics forever. The Republican Party is at your service. Good luck.", "Message from Reince Priebus", JOptionPane.INFORMATION_MESSAGE, rp);
 		}
 		else if(candidate == "Clinton") {
 			ImageIcon dws = new ImageIcon("DWS_Photo.jpg");
 			JOptionPane.showMessageDialog(null,
-							 "Hillary Clinton: Despite a unexpectedly brutal primary fight with previously unknown Senator Bernie Sanders, you were able to win the Democratic nomination."
-					+ "\n" + "Now you must pivot towards the general election against Donald Trump, who seems like a weak candidate but was able to outlast more conventional candidates"
-					+ "\n" + "during the republican primary. Hopefully, you can unify the fractured Democratic party and continue on with Obama's legacy, or forge your own vision"
-					+ "\n" + "for the country. The Democratic Party is at your service. Good luck.", "Message from Debbie Wasserman Schultz", JOptionPane.INFORMATION_MESSAGE, dws);
+							 "Hillary Clinton: As a former first lady, congresswoman, and secretary of state, you have emerged as the democratic candidate for president"
+					+ "\n" + "despite a unexpectedly brutal primary fight with previously unknown Senator Bernie Sanders. At first seen as the presumptive Democratic nominee,"
+					+ "\n" + "you now must repair the fractured party and bring Democratic unity to the general election. You must now pivot towards the general election"
+					+ "\n" + "against Donald Trump, who seems like a weak candidate but was able to outlast more conventional candidates during the republican primary."
+					+ "\n" + "Hopefully, you can unify the fractured Democratic party and continue on with Obama's legacy, or forge your own visionfor the country. If you"
+					+ "\n" + "can manage to keep a steady course, you will finally have the opportunity to hold the office you have desired for so long. The Democratic Party"
+					+ "\n" + " is at your service. Good luck.", "Message from Debbie Wasserman Schultz", JOptionPane.INFORMATION_MESSAGE, dws);
 		}
 		else if(candidate == "Johnson") {
 			ImageIcon ns = new ImageIcon("NS_Photo.jpg");
@@ -87,12 +96,14 @@ public class StartScreen {
 							 "Gary Johnson: As the former governor of New Mexico and the 2012 Libertarian nominee, you are now undertaking your 2nd long-shot run at the presidency."
 					+ "\n" + "With both the Republican and Democratic parties producing weak nominees, this could be a once-in-a-generation chance to build a coalition"
 					+ "\n" + "of moderates and dissatisfied voters to thrust the Libertarian party into the national spotlight and give the American people a true"
-					+ "\n" + "alternative. The Libertarian party is at your service. Good luck.", "Message from Nicholas Sarwark", JOptionPane.INFORMATION_MESSAGE, ns);
+					+ "\n" + "alternative. This election gives us the chance to challenge the establishment political parties. Although there is a very low chance of outright" 
+					+ "\n" + "winning the election, picking off a few states can force the election to the house, where you can influence who becomes president, or even become" 
+					+ "\n" + "president yourself. The Libertarian party is at your service. Good luck.", "Message from Nicholas Sarwark", JOptionPane.INFORMATION_MESSAGE, ns);
 		}
 		else if(candidate == "Stein") {
 			ImageIcon js = new ImageIcon("JS_Photo.jpg");
 			JOptionPane.showMessageDialog(null, 
-							 "Jill Stein: The candidate for the Green Party in 2012, you have once again recieved the nomination of the Green Party. With the unexpected"
+							 "Jill Stein: As the former green party candidate in 2012 and career physician/activist, you have once again recieved the nomination of the Green Party. With the unexpected"
 					+ "\n" + "success of the progressive Bernie Sanders in the Democratic Party and the nomination of the unpopular Hillary Clinton, you hope to"
 					+ "\n" + "gather those dissatisfied Bernie supporters and bring them into your fold and give the American people a true progressive alternative."
 					+ "\n" + "Use the Green Party's resources to change America forever.", "Jill Stein", JOptionPane.INFORMATION_MESSAGE, js);
@@ -100,12 +111,25 @@ public class StartScreen {
 		else if(candidate == "McMullin") {
 			ImageIcon emm = new ImageIcon("EMM_Photo.jpg");
 			JOptionPane.showMessageDialog(null, 
-							 "Evan McMullin: With the nomination of Donald Trump as the Republican Party's nominee, you are running as an independent for president to be a"
-					+ "\n" + "representative of the Never Trump wing of the Republican party to challenge Trump among conservative voters and represent a better"
-					+ "\n" + "version of the Republican Party. Most of your hopes rest in Utah, where a combination of the unpopularity of Trump and your background"
-					+ "\n" + "represents a chance to win the state. Good luck.", "Evan McMullin", JOptionPane.INFORMATION_MESSAGE, emm);
+							 "Evan McMullin: As a former CIA operative and conservative Mormon, you are running as an independent on the behalf of never-Trump Republicans"
+					+ "\n" + "in order to present a more traditional conservative alternative to Trump and represent a better version of the Republican Party."
+					+ "\n" + "Most of your hopes rest in Utah, and potentially Idaho, where a combination of the unpopularity of Trump and your background"
+					+ "\n" + "represents a chance to win the state. Hopefully you can harness Mormon hatred of Trump to your advantage. Good luck.", "Evan McMullin", JOptionPane.INFORMATION_MESSAGE, emm);
 		}
 		startScreenFrame.dispose();
 		new MainPage(candidate);
 	}
+	
+    public static void audio() {
+        File file = new File("C:\\Users\\Jack\\git\\Election-Game\\TitleMusic.wav");
+        try {
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(file));
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
+        } catch (Exception e) {
+            System.err.println("Put the music.wav file in the sound folder if you want to play background music, only optional!");
+        }
+    }
+    
 }
