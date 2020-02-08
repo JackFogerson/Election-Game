@@ -101,11 +101,11 @@ public class ResultsPage {
 		}
 		
 		String repHouseExp = "" + (-247+RH);
-		if(RH>54) {
+		if(RH>247) {
 			repHouseExp = "+" + (-247+RH);
 		}
 		String demHouseExp = "" + (-188+DH);
-		if(DH>46) {
+		if(DH>188) {
 			demHouseExp = "+" + (-188+DH);
 		}
 		String libHouseExp = "+" + (0+LH);
@@ -586,10 +586,9 @@ public class ResultsPage {
         int RAKH = 0;
         int DAKH = 0; 
         int LAKH = 0;
-        /*
-        double RAK1 = 50.5 * (Alaska.TrumpAK/51.3);
-        double DAK1 = 36.5 * (Alaska.ClintonAK/36.6);       
-        double LAK1 = 10.1 * (Alaska.JohnsonAK/5.9);
+        double RAK1 = 50.5 * (s.Alaska.getRep()/51.3);
+        double DAK1 = 36.5 * (s.Alaska.getDem()/36.6);       
+        double LAK1 = 10.1 * (s.Alaska.getLib()/5.9);
         if(RAK1 > DAK1 && RAK1 > LAK1){
             RH = RH + 1;
             RAKH++;
@@ -606,9 +605,9 @@ public class ResultsPage {
         int RHIH = 0;
         int DHIH = 0; 
         int LHIH = 0;
-        double RHI1 = 22.7 * (Hawaii.TrumpHI/30.0);
-        double DHI1 = 71.9 * (Hawaii.ClintonHI/62.2);       
-        double LHI1 = 3.3 * (Hawaii.JohnsonHI/3.7);
+        double RHI1 = 22.7 * (s.Hawaii.getRep()/30.0);
+        double DHI1 = 71.9 * (s.Hawaii.getDem()/62.2);       
+        double LHI1 = 3.3 * (s.Hawaii.getLib()/3.7);
         if(RHI1 > DHI1 && RHI1 > LHI1){
             RH = RH + 1;
             RHIH++;
@@ -621,8 +620,8 @@ public class ResultsPage {
             LH = LH + 1;
             LHIH++;
         }  
-        double RHI2 = 18.8 * (Hawaii.TrumpHI/30.0);
-        double DHI2 = 81.2 * (Hawaii.ClintonHI/62.2);       
+        double RHI2 = 18.8 * (s.Hawaii.getRep()/30.0);
+        double DHI2 = 81.2 * (s.Hawaii.getDem()/62.2);       
         if(RHI2 > DHI2){
             RH = RH + 1;
             RHIH++;
@@ -631,11 +630,11 @@ public class ResultsPage {
             DH = DH + 1;
             DHIH++;
         }    
-        
+               
         int RCAH = 0;
-        int DCAH = 0;        
-        double RCA1 = 59.5 * (California.TrumpCA/31.5);
-        double DCA1 = 40.5 * (California.ClintonCA/61.5);                
+        int DCAH = 9;        
+        double RCA1 = 59.5 * (s.California.getRep()/31.5);
+        double DCA1 = 40.5 * (s.California.getDem()/61.5);
         if(RCA1 > DCA1){
             RH = RH + 1;
             RCAH++;
@@ -644,8 +643,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }    
-        double RCA2 = 22.9 * (California.TrumpCA/31.5);
-        double DCA2 = 77.1 * (California.ClintonCA/61.5);                
+        double RCA2 = 22.9 * (s.California.getRep()/31.5);
+        double DCA2 = 77.1 * (s.California.getDem()/61.5);                
         if(RCA2 > DCA2){
             RH = RH + 1;
             RCAH++;
@@ -654,8 +653,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }  
-        double RCA3 = 41.8 * (California.TrumpCA/31.5);
-        double DCA3 = 58.2 * (California.ClintonCA/61.5);                
+        double RCA3 = 41.8 * (s.California.getRep()/31.5);
+        double DCA3 = 58.2 * (s.California.getDem()/61.5);                
         if(RCA3 > DCA3){
             RH = RH + 1;
             RCAH++;
@@ -664,8 +663,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }      
-        double RCA4 = 62.8 * (California.TrumpCA/31.5);
-        double DCA4 = 37.2 * (California.ClintonCA/61.5);                
+        double RCA4 = 62.8 * (s.California.getRep()/31.5);
+        double DCA4 = 37.2 * (s.California.getDem()/61.5);                
         if(RCA4 > DCA4){
             RH = RH + 1;
             RCAH++;
@@ -674,8 +673,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }        
-        double RCA5 = 22.8 * (California.TrumpCA/31.5);
-        double DCA5 = 77.2 * (California.ClintonCA/61.5);                
+        double RCA5 = 22.8 * (s.California.getRep()/31.5);
+        double DCA5 = 77.2 * (s.California.getDem()/61.5);                
         if(RCA5 > DCA5){
             RH = RH + 1;
             RCAH++;
@@ -684,8 +683,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }      
-        double RCA6 = 24.8 * (California.TrumpCA/31.5);
-        double DCA6 = 75.2 * (California.ClintonCA/61.5);                
+        double RCA6 = 24.8 * (s.California.getRep()/31.5);
+        double DCA6 = 75.2 * (s.California.getDem()/61.5);              
         if(RCA6 > DCA6){
             RH = RH + 1;
             RCAH++;
@@ -694,8 +693,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }       
-        double RCA7 = 48.8 * (California.TrumpCA/31.5);
-        double DCA7 = 51.2 * (California.ClintonCA/61.5);                
+        double RCA7 = 48.8 * (s.California.getRep()/31.5);
+        double DCA7 = 51.2 * (s.California.getDem()/61.5);               
         if(RCA7 > DCA7){
             RH = RH + 1;
             RCAH++;
@@ -704,8 +703,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }   
-        double RCA8 = 62.7 * (California.TrumpCA/31.5);
-        double DCA8 = 37.3 * (California.ClintonCA/61.5);                
+        double RCA8 = 62.7 * (s.California.getRep()/31.5);
+        double DCA8 = 37.3 * (s.California.getDem()/61.5);               
         if(RCA8 > DCA8){
             RH = RH + 1;
             RCAH++;
@@ -714,8 +713,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }    
-        double RCA9 = 42.4 * (California.TrumpCA/31.5);
-        double DCA9 = 57.6 * (California.ClintonCA/61.5);                
+        double RCA9 = 42.4 * (s.California.getRep()/31.5);
+        double DCA9 = 57.6 * (s.California.getDem()/61.5);               
         if(RCA9 > DCA9){
             RH = RH + 1;
             RCAH++;
@@ -724,8 +723,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }           
-        double RCA10 = 52.4 * (California.TrumpCA/31.5);
-        double DCA10 = 47.6 * (California.ClintonCA/61.5);                
+        double RCA10 = 52.4 * (s.California.getRep()/31.5);
+        double DCA10 = 47.6 * (s.California.getDem()/61.5);                
         if(RCA10 > DCA10){
             RH = RH + 1;
             RCAH++;
@@ -734,8 +733,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }            
-        double RCA11 = 28.2 * (California.TrumpCA/31.5);
-        double DCA11 = 71.8 * (California.ClintonCA/61.5);                
+        double RCA11 = 28.2 * (s.California.getRep()/31.5);
+        double DCA11 = 71.8 * (s.California.getDem()/61.5);                
         if(RCA11 > DCA11){
             RH = RH + 1;
             RCAH++;
@@ -745,8 +744,8 @@ public class ResultsPage {
             DCAH++;
         }     
         //NO NUMBER 12
-        double RCA13 = 9.3 * (California.TrumpCA/31.5);
-        double DCA13 = 90.7 * (California.ClintonCA/61.5);                
+        double RCA13 = 9.3 * (s.California.getRep()/31.5);
+        double DCA13 = 90.7 * (s.California.getDem()/61.5);                
         if(RCA13 > DCA13){
             RH = RH + 1;
             RCAH++;
@@ -755,8 +754,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }             
-        double RCA14 = 19.1 * (California.TrumpCA/31.5);
-        double DCA14 = 80.9 * (California.ClintonCA/61.5);                
+        double RCA14 = 19.1 * (s.California.getRep()/31.5);
+        double DCA14 = 80.9 * (s.California.getDem()/61.5);               
         if(RCA14 > DCA14){
             RH = RH + 1;
             RCAH++;
@@ -765,8 +764,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }   
-        double RCA15 = 26.2 * (California.TrumpCA/31.5);
-        double DCA15 = 73.8 * (California.ClintonCA/61.5);                
+        double RCA15 = 26.2 * (s.California.getRep()/31.5);
+        double DCA15 = 73.8 * (s.California.getDem()/61.5);                
         if(RCA15 > DCA15){
             RH = RH + 1;
             RCAH++;
@@ -775,8 +774,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }                  
-        double RCA16 = 42.2 * (California.TrumpCA/31.5);
-        double DCA16 = 57.8 * (California.ClintonCA/61.5);                
+        double RCA16 = 42.2 * (s.California.getRep()/31.5);
+        double DCA16 = 57.8 * (s.California.getDem()/61.5);                
         if(RCA16 > DCA16){
             RH = RH + 1;
             RCAH++;
@@ -786,8 +785,8 @@ public class ResultsPage {
             DCAH++;
         }                  
         //NO NUMBER 17
-        double RCA18 = 28.8 * (California.TrumpCA/31.5);
-        double DCA18 = 71.2 * (California.ClintonCA/61.5);                
+        double RCA18 = 28.8 * (s.California.getRep()/31.5);
+        double DCA18 = 71.2 * (s.California.getDem()/61.5);               
         if(RCA18 > DCA18){
             RH = RH + 1;
             RCAH++;
@@ -796,8 +795,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }  
-        double RCA19 = 26.0 * (California.TrumpCA/31.5);
-        double DCA19 = 74.0 * (California.ClintonCA/61.5);                
+        double RCA19 = 26.0 * (s.California.getRep()/31.5);
+        double DCA19 = 74.0 * (s.California.getDem()/61.5);                
         if(RCA19 > DCA19){
             RH = RH + 1;
             RCAH++;
@@ -806,8 +805,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }
-        double RCA20 = 29.4 * (California.TrumpCA/31.5);
-        double DCA20 = 70.6 * (California.ClintonCA/61.5);                
+        double RCA20 = 29.4 * (s.California.getRep()/31.5);
+        double DCA20 = 70.6 * (s.California.getDem()/61.5);                
         if(RCA20 > DCA20){
             RH = RH + 1;
             RCAH++;
@@ -816,8 +815,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }  
-        double RCA21 = 58.0 * (California.TrumpCA/31.5);
-        double DCA21 = 42.0 * (California.ClintonCA/61.5);                
+        double RCA21 = 58.0 * (s.California.getRep()/31.5);
+        double DCA21 = 42.0 * (s.California.getDem()/61.5);                
         if(RCA21 > DCA21){
             RH = RH + 1;
             RCAH++;
@@ -826,8 +825,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }  
-        double RCA22 = 68.2 * (California.TrumpCA/31.5);
-        double DCA22 = 31.8 * (California.ClintonCA/61.5);                
+        double RCA22 = 68.2 * (s.California.getRep()/31.5);
+        double DCA22 = 31.8 * (s.California.getDem()/61.5);                
         if(RCA22 > DCA22){
             RH = RH + 1;
             RCAH++;
@@ -836,8 +835,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }     
-        double RCA23 = 70.0 * (California.TrumpCA/31.5);
-        double DCA23 = 30.0 * (California.ClintonCA/61.5);                
+        double RCA23 = 70.0 * (s.California.getRep()/31.5);
+        double DCA23 = 30.0 * (s.California.getDem()/61.5);                
         if(RCA23 > DCA23){
             RH = RH + 1;
             RCAH++;
@@ -846,8 +845,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }   
-        double RCA24 = 46.8 * (California.TrumpCA/31.5);
-        double DCA24 = 53.2 * (California.ClintonCA/61.5);                
+        double RCA24 = 46.8 * (s.California.getRep()/31.5);
+        double DCA24 = 53.2 * (s.California.getDem()/61.5);             
         if(RCA24 > DCA24){
             RH = RH + 1;
             RCAH++;
@@ -856,8 +855,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }     
-        double RCA25 = 54.2 * (California.TrumpCA/31.5);
-        double DCA25 = 45.8 * (California.ClintonCA/61.5);                
+        double RCA25 = 54.2 * (s.California.getRep()/31.5);
+        double DCA25 = 45.8 * (s.California.getDem()/61.5);                
         if(RCA25 > DCA25){
             RH = RH + 1;
             RCAH++;
@@ -866,8 +865,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }   
-        double RCA26 = 40.1 * (California.TrumpCA/31.5);
-        double DCA26 = 59.9 * (California.ClintonCA/61.5);                
+        double RCA26 = 40.1 * (s.California.getRep()/31.5);
+        double DCA26 = 59.9 * (s.California.getDem()/61.5);               
         if(RCA26 > DCA26){
             RH = RH + 1;
             RCAH++;
@@ -876,8 +875,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }   
-        double RCA27 = 33.5 * (California.TrumpCA/31.5);
-        double DCA27 = 66.5 * (California.ClintonCA/61.5);                
+        double RCA27 = 33.5 * (s.California.getRep()/31.5);
+        double DCA27 = 66.5 * (s.California.getDem()/61.5);                
         if(RCA27 > DCA27){
             RH = RH + 1;
             RCAH++;
@@ -886,8 +885,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }    
-        double RCA28 = 22.1 * (California.TrumpCA/31.5);
-        double DCA28 = 77.9 * (California.ClintonCA/61.5);                
+        double RCA28 = 22.1 * (s.California.getRep()/31.5);
+        double DCA28 = 77.9 * (s.California.getDem()/61.5);               
         if(RCA28 > DCA28){
             RH = RH + 1;
             RCAH++;
@@ -897,8 +896,8 @@ public class ResultsPage {
             DCAH++;
         }  
         //NO NUMBER 29
-        double RCA30 = 27.6 * (California.TrumpCA/31.5);
-        double DCA30 = 72.4 * (California.ClintonCA/61.5);                
+        double RCA30 = 27.6 * (s.California.getRep()/31.5);
+        double DCA30 = 72.4 * (s.California.getDem()/61.5);                
         if(RCA30 > DCA30){
             RH = RH + 1;
             RCAH++;
@@ -907,8 +906,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }           
-        double RCA31 = 44.3 * (California.TrumpCA/31.5);
-        double DCA31 = 55.7 * (California.ClintonCA/61.5);                
+        double RCA31 = 44.3 * (s.California.getRep()/31.5);
+        double DCA31 = 55.7 * (s.California.getDem()/61.5);                
         if(RCA31 > DCA31){
             RH = RH + 1;
             RCAH++;
@@ -918,8 +917,8 @@ public class ResultsPage {
             DCAH++;
         } 
         //NO NUMBER 32
-        double RCA33 = 33.7 * (California.TrumpCA/31.5);
-        double DCA33 = 66.3 * (California.ClintonCA/61.5);                
+        double RCA33 = 33.7 * (s.California.getRep()/31.5);
+        double DCA33 = 66.3 * (s.California.getDem()/61.5);                
         if(RCA33 > DCA33){
             RH = RH + 1;
             RCAH++;
@@ -929,8 +928,8 @@ public class ResultsPage {
             DCAH++;
         } 
         //NO NUMBER 34
-        double RCA35 = 28.2 * (California.TrumpCA/31.5);
-        double DCA35 = 71.8 * (California.ClintonCA/61.5);                
+        double RCA35 = 28.2 * (s.California.getRep()/31.5);
+        double DCA35 = 71.8 * (s.California.getDem()/61.5);                
         if(RCA35 > DCA35){
             RH = RH + 1;
             RCAH++;
@@ -939,8 +938,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }  
-        double RCA36 = 38.6 * (California.TrumpCA/31.5);
-        double DCA36 = 61.4 * (California.ClintonCA/61.5);                
+        double RCA36 = 38.6 * (s.California.getRep()/31.5);
+        double DCA36 = 61.4 * (s.California.getDem()/61.5);                
         if(RCA36 > DCA36){
             RH = RH + 1;
             RCAH++;
@@ -950,8 +949,8 @@ public class ResultsPage {
             DCAH++;
         }           
         //NO NUMBER 37
-        double RCA38 = 30.3 * (California.TrumpCA/31.5);
-        double DCA38 = 69.7 * (California.ClintonCA/61.5);                
+        double RCA38 = 30.3 * (s.California.getRep()/31.5);
+        double DCA38 = 69.7 * (s.California.getDem()/61.5);               
         if(RCA38 > DCA38){
             RH = RH + 1;
             RCAH++;
@@ -960,8 +959,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         } 
-        double RCA39 = 57.7 * (California.TrumpCA/31.5);
-        double DCA39 = 42.3 * (California.ClintonCA/61.5);                
+        double RCA39 = 57.7 * (s.California.getRep()/31.5);
+        double DCA39 = 42.3 * (s.California.getDem()/61.5);                
         if(RCA39 > DCA39){
             RH = RH + 1;
             RCAH++;
@@ -970,9 +969,9 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }  
-        //NO NUMBER 4o
-        double RCA41 = 35.6 * (California.TrumpCA/31.5);
-        double DCA41 = 64.4 * (California.ClintonCA/61.5);                
+        //NO NUMBER 40
+        double RCA41 = 35.6 * (s.California.getRep()/31.5);
+        double DCA41 = 64.4 * (s.California.getDem()/61.5);                
         if(RCA41 > DCA41){
             RH = RH + 1;
             RCAH++;
@@ -981,8 +980,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }           
-        double RCA42 = 59.0 * (California.TrumpCA/31.5);
-        double DCA42 = 41.0 * (California.ClintonCA/61.5);                
+        double RCA42 = 59.0 * (s.California.getRep()/31.5);
+        double DCA42 = 41.0 * (s.California.getDem()/61.5);                
         if(RCA42 > DCA42){
             RH = RH + 1;
             RCAH++;
@@ -991,8 +990,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }   
-        double RCA43 = 24.4 * (California.TrumpCA/31.5);
-        double DCA43 = 75.6 * (California.ClintonCA/61.5);                
+        double RCA43 = 24.4 * (s.California.getRep()/31.5);
+        double DCA43 = 75.6 * (s.California.getDem()/61.5);               
         if(RCA43 > DCA43){
             RH = RH + 1;
             RCAH++;
@@ -1002,8 +1001,8 @@ public class ResultsPage {
             DCAH++;
         }           
         //NO NUMBER 44
-        double RCA45 = 59.0 * (California.TrumpCA/31.5);
-        double DCA45 = 41.0 * (California.ClintonCA/61.5);                
+        double RCA45 = 59.0 * (s.California.getRep()/31.5);
+        double DCA45 = 41.0 * (s.California.getDem()/61.5);               
         if(RCA45 > DCA45){
             RH = RH + 1;
             RCAH++;
@@ -1013,8 +1012,8 @@ public class ResultsPage {
             DCAH++;
         }           
         //NO NUMBER 46
-        double RCA47 = 37.5 * (California.TrumpCA/31.5);
-        double DCA47 = 62.5 * (California.ClintonCA/61.5);                
+        double RCA47 = 37.5 * (s.California.getRep()/31.5);
+        double DCA47 = 62.5 * (s.California.getDem()/61.5);              
         if(RCA47 > DCA47){
             RH = RH + 1;
             RCAH++;
@@ -1023,8 +1022,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }          
-        double RCA48 = 58.5 * (California.TrumpCA/31.5);
-        double DCA48 = 41.5 * (California.ClintonCA/61.5);                
+        double RCA48 = 58.5 * (s.California.getRep()/31.5);
+        double DCA48 = 41.5 * (s.California.getDem()/61.5);                
         if(RCA48 > DCA48){
             RH = RH + 1;
             RCAH++;
@@ -1033,8 +1032,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }       
-        double RCA49 = 51.0 * (California.TrumpCA/31.5);
-        double DCA49 = 49.0 * (California.ClintonCA/61.5);                
+        double RCA49 = 51.0 * (s.California.getRep()/31.5);
+        double DCA49 = 49.0 * (s.California.getDem()/61.5);               
         if(RCA49 > DCA49){
             RH = RH + 1;
             RCAH++;
@@ -1043,8 +1042,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }           
-        double RCA50 = 63.9 * (California.TrumpCA/31.5);
-        double DCA50 = 36.1 * (California.ClintonCA/61.5);                
+        double RCA50 = 63.9 * (s.California.getRep()/31.5);
+        double DCA50 = 36.1 * (s.California.getDem()/61.5);              
         if(RCA50 > DCA50){
             RH = RH + 1;
             RCAH++;
@@ -1053,8 +1052,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }           
-        double RCA51 = 28.1 * (California.TrumpCA/31.5);
-        double DCA51 = 71.9 * (California.ClintonCA/61.5);                
+        double RCA51 = 28.1 * (s.California.getRep()/31.5);
+        double DCA51 = 71.9 * (s.California.getDem()/61.5);             
         if(RCA51 > DCA51){
             RH = RH + 1;
             RCAH++;
@@ -1063,8 +1062,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }           
-        double RCA52 = 43.6 * (California.TrumpCA/31.5);
-        double DCA52 = 56.4 * (California.ClintonCA/61.5);                
+        double RCA52 = 43.6 * (s.California.getRep()/31.5);
+        double DCA52 = 56.4 * (s.California.getDem()/61.5);             
         if(RCA52 > DCA52){
             RH = RH + 1;
             RCAH++;
@@ -1073,8 +1072,8 @@ public class ResultsPage {
             DH = DH + 1;
             DCAH++;
         }  
-        double RCA53 = 33.9 * (California.TrumpCA/31.5);
-        double DCA53 = 66.1 * (California.ClintonCA/61.5);                
+        double RCA53 = 33.9 * (s.California.getRep()/31.5);
+        double DCA53 = 66.1 * (s.California.getDem()/61.5);               
         if(RCA53 > DCA53){
             RH = RH + 1;
             RCAH++;
@@ -1085,12 +1084,12 @@ public class ResultsPage {
         }           
 
         int RORH = 0;
-        int DORH = 0; 
+        int DORH = 1; 
         int LORH = 0;
         int GORH = 0;
-        double ROR1 = 37.3 * (Oregon.TrumpOR/39.1);
-        double DOR1 = 59.6 * (Oregon.ClintonOR/50.1);       
-        double LOR1 = 3.1 * (Oregon.JohnsonOR/4.7);
+        double ROR1 = 37.3 * (s.Oregon.getRep()/39.1);
+        double DOR1 = 59.6 * (s.Oregon.getDem()/50.1);       
+        double LOR1 = 3.1 * (s.Oregon.getLib()/4.7);
         if(ROR1 > DOR1 && ROR1 > LOR1){
             RH = RH + 1;
             RORH++;
@@ -1103,8 +1102,8 @@ public class ResultsPage {
             LH = LH + 1;
             LORH++;
         }          
-        double ROR2 = 72.1 * (Oregon.TrumpOR/30.0);
-        double DOR2 = 27.9 * (Oregon.ClintonOR/62.2);       
+        double ROR2 = 72.1 * (s.Oregon.getRep()/30.0);
+        double DOR2 = 27.9 * (s.Oregon.getDem()/62.2);       
         if(ROR2 > DOR2){
             RH = RH + 1;
             RORH++;
@@ -1114,10 +1113,10 @@ public class ResultsPage {
             DORH++;
         }        
         //NO NUMBER 3
-        double ROR4 = 39.8 * (Oregon.TrumpOR/39.1);
-        double DOR4 = 55.5 * (Oregon.ClintonOR/50.1);       
-        double LOR4 = 1.6 * (Oregon.JohnsonOR/4.7);
-        double GOR4 = 3.0 * (Oregon.SteinOR/2.5);
+        double ROR4 = 39.8 * (s.Oregon.getRep()/39.1);
+        double DOR4 = 55.5 * (s.Oregon.getDem()/50.1);       
+        double LOR4 = 1.6 * (s.Oregon.getLib()/4.7);
+        double GOR4 = 3.0 * (s.Oregon.getGreen()/2.5);
         if(ROR4 > DOR4 && ROR4 > LOR4 && ROR4 > GOR4){
             RH = RH + 1;
             RORH++;
@@ -1134,9 +1133,9 @@ public class ResultsPage {
             GH = GH + 1;
             GORH++;
         }              
-        double ROR5 = 43.2 * (Oregon.TrumpOR/39.1);
-        double DOR5 = 53.6 * (Oregon.ClintonOR/50.1);       
-        double GOR5 = 3.2 * (Oregon.SteinOR/2.5);
+        double ROR5 = 43.2 * (s.Oregon.getRep()/39.1);
+        double DOR5 = 53.6 * (s.Oregon.getDem()/50.1);       
+        double GOR5 = 3.2 * (s.Oregon.getGreen()/2.5);
         if(ROR5 > DOR5 && ROR5 > GOR5){
             RH = RH + 1;
             RORH++;
@@ -1149,10 +1148,10 @@ public class ResultsPage {
             GH = GH + 1;
             GORH++;
         }       
-        int RWAH = 0;
-        int DWAH = 0;        
-        double RWA1 = 44.5 * (Washington.TrumpWA/36.8);
-        double DWA1 = 55.5 * (Washington.ClintonWA/52.5);                
+        int RWAH = 1;
+        int DWAH = 1;
+        double RWA1 = 44.5 * (s.Washington.getRep()/36.8);
+        double DWA1 = 55.5 * (s.Washington.getDem()/52.5);                
         if(RWA1 > DWA1){
             RH = RH + 1;
             RWAH++;
@@ -1161,8 +1160,8 @@ public class ResultsPage {
             DH = DH + 1;
             DWAH++;
         }          
-        double RWA2 = 36.0 * (Washington.TrumpWA/36.8);
-        double DWA2 = 64.0 * (Washington.ClintonWA/52.5);                
+        double RWA2 = 36.0 * (s.Washington.getRep()/36.8);
+        double DWA2 = 64.0 * (s.Washington.getDem()/52.5);                
         if(RWA2 > DWA2){
             RH = RH + 1;
             RWAH++;
@@ -1171,8 +1170,8 @@ public class ResultsPage {
             DH = DH + 1;
             DWAH++;
         }       
-        double RWA3 = 61.4 * (Washington.TrumpWA/36.8);
-        double DWA3 = 38.6 * (Washington.ClintonWA/52.5);                
+        double RWA3 = 61.4 * (s.Washington.getRep()/36.8);
+        double DWA3 = 38.6 * (s.Washington.getDem()/52.5);                
         if(RWA3 > DWA3){
             RH = RH + 1;
             RWAH++;
@@ -1182,8 +1181,8 @@ public class ResultsPage {
             DWAH++;
         }       
         //NO NUMBER 4
-        double RWA5 = 59.5 * (Washington.TrumpWA/36.8);
-        double DWA5 = 40.5 * (Washington.ClintonWA/52.5);                
+        double RWA5 = 59.5 * (s.Washington.getRep()/36.8);
+        double DWA5 = 40.5 * (s.Washington.getDem()/52.5);                
         if(RWA5 > DWA5){
             RH = RH + 1;
             RWAH++;
@@ -1192,8 +1191,8 @@ public class ResultsPage {
             DH = DH + 1;
             DWAH++;
         }       
-        double RWA6 = 38.3 * (Washington.TrumpWA/36.8);
-        double DWA6 = 61.7 * (Washington.ClintonWA/52.5);                
+        double RWA6 = 38.3 * (s.Washington.getRep()/36.8);
+        double DWA6 = 61.7 * (s.Washington.getDem()/52.5);                
         if(RWA6 > DWA6){
             RH = RH + 1;
             RWAH++;
@@ -1203,8 +1202,8 @@ public class ResultsPage {
             DWAH++;
         }       
         //NO NUMBER 7
-        double RWA8 = 60.0 * (Washington.TrumpWA/36.8);
-        double DWA8 = 40.0 * (Washington.ClintonWA/52.5);                
+        double RWA8 = 60.0 * (s.Washington.getRep()/36.8);
+        double DWA8 = 40.0 * (s.Washington.getDem()/52.5);                
         if(RWA8 > DWA8){
             RH = RH + 1;
             RWAH++;
@@ -1213,8 +1212,8 @@ public class ResultsPage {
             DH = DH + 1;
             DWAH++;
         }       
-        double RWA9 = 27.0 * (Washington.TrumpWA/36.8);
-        double DWA9 = 73.0 * (Washington.ClintonWA/52.5);                
+        double RWA9 = 27.0 * (s.Washington.getRep()/36.8);
+        double DWA9 = 73.0 * (s.Washington.getDem()/52.5);                
         if(RWA9 > DWA9){
             RH = RH + 1;
             RWAH++;
@@ -1223,8 +1222,8 @@ public class ResultsPage {
             DH = DH + 1;
             DWAH++;
         }       
-        double RWA10 = 41.3 * (Washington.TrumpWA/36.8);
-        double DWA10 = 58.7 * (Washington.ClintonWA/52.5);                
+        double RWA10 = 41.3 * (s.Washington.getRep()/36.8);
+        double DWA10 = 58.7 * (s.Washington.getDem()/52.5);                
         if(RWA10 > DWA10){
             RH = RH + 1;
             RWAH++;
@@ -1232,12 +1231,12 @@ public class ResultsPage {
         else if(DWA10 > RWA10){
             DH = DH + 1;
             DWAH++;
-        }               
+        }     
         int RNVH = 0;
         int DNVH = 0;
         int LNVH = 0;
-        double RNV1 = 28.8 * (Nevada.TrumpNV/45.5);
-        double DNV1 = 61.8 * (Nevada.ClintonNV/47.9);                
+        double RNV1 = 28.8 * (s.Nevada.getRep()/45.5);
+        double DNV1 = 61.8 * (s.Nevada.getDem()/47.9);                
         if(RNV1 > DNV1){
             RH = RH + 1;
             RNVH++;
@@ -1246,8 +1245,8 @@ public class ResultsPage {
             DH = DH + 1;
             DNVH++;
         } 
-        double RNV2 = 58.3 * (Nevada.TrumpNV/45.5);
-        double DNV2 = 36.9 * (Nevada.ClintonNV/47.9);                
+        double RNV2 = 58.3 * (s.Nevada.getRep()/45.5);
+        double DNV2 = 36.9 * (s.Nevada.getDem()/47.9);                
         if(RNV2 > DNV2){
             RH = RH + 1;
             RNVH++;
@@ -1256,8 +1255,8 @@ public class ResultsPage {
             DH = DH + 1;
             DNVH++;
         }   
-        double RNV3 = 46.0 * (Nevada.TrumpNV/45.5);
-        double DNV3 = 47.2 * (Nevada.ClintonNV/47.9);                
+        double RNV3 = 46.0 * (s.Nevada.getRep()/45.5);
+        double DNV3 = 47.2 * (s.Nevada.getDem()/47.9);                
         if(RNV3 > DNV3){
             RH = RH + 1;
             RNVH++;
@@ -1266,9 +1265,9 @@ public class ResultsPage {
             DH = DH + 1;
             DNVH++;
         }  
-        double RNV4 = 45.5 * (Nevada.TrumpNV/45.5);
-        double DNV4 = 48.5 * (Nevada.ClintonNV/47.9);         
-        double LNV4 = 3.8 * (Nevada.JohnsonNV/3.3);                
+        double RNV4 = 45.5 * (s.Nevada.getRep()/45.5);
+        double DNV4 = 48.5 * (s.Nevada.getDem()/47.9);         
+        double LNV4 = 3.8 * (s.Nevada.getLib()/3.3);                
        
         if(RNV4 > DNV4 && RNV4 > LNV4){
             RH = RH + 1;
@@ -1285,8 +1284,8 @@ public class ResultsPage {
         
         int RIDH = 0;
         int DIDH = 0;
-        double RID1 = 68.2 * (Idaho.TrumpID/59.2);
-        double DID1 = 31.8 * (Idaho.ClintonID/27.5);                
+        double RID1 = 68.2 * (s.Idaho.getRep()/59.2);
+        double DID1 = 31.8 * (s.Idaho.getDem()/27.5);                
         if(RID1 > DID1){
             RH = RH + 1;
             RIDH++;
@@ -1295,8 +1294,8 @@ public class ResultsPage {
             DH = DH + 1;
             DIDH++;
         }
-        double RID2 = 62.9 * (Idaho.TrumpID/59.2);
-        double DID2 = 29.4 * (Idaho.ClintonID/27.5);                
+        double RID2 = 62.9 * (s.Idaho.getRep()/59.2);
+        double DID2 = 29.4 * (s.Idaho.getDem()/27.5);                
         if(RID2 > DID2){
             RH = RH + 1;
             RIDH++;
@@ -1308,9 +1307,9 @@ public class ResultsPage {
         int RUTH = 0;
         int DUTH = 0;
         int LUTH = 0;
-        double RUT1 = 65.9 * (Utah.TrumpUT/45.1);
-        double DUT1 = 26.4 * (Utah.ClintonUT/27.2);   
-        double LUT1 = 5.9 * (Utah.JohnsonUT/3.5);             
+        double RUT1 = 65.9 * (s.Utah.getRep()/45.1);
+        double DUT1 = 26.4 * (s.Utah.getDem()/27.2);   
+        double LUT1 = 5.9 * (s.Utah.getLib()/3.5);             
         if(RUT1 > DUT1 && RUT1 > LUT1){
             RH = RH + 1;
             RUTH++;
@@ -1323,8 +1322,8 @@ public class ResultsPage {
             LH = LH + 1;
             LUTH++;
         }
-        double RUT2 = 61.6 * (Utah.TrumpUT/45.1);
-        double DUT2 = 33.9 * (Utah.ClintonUT/27.2);   
+        double RUT2 = 61.6 * (s.Utah.getRep()/45.1);
+        double DUT2 = 33.9 * (s.Utah.getDem()/27.2);   
         if(RUT2 > DUT2){
             RH = RH + 1;
             RUTH++;
@@ -1333,8 +1332,8 @@ public class ResultsPage {
             DH = DH + 1;
             DUTH++;
         }
-        double RUT3 = 73.5 * (Utah.TrumpUT/45.1);
-        double DUT3 = 26.5 * (Utah.ClintonUT/27.2);   
+        double RUT3 = 73.5 * (s.Utah.getRep()/45.1);
+        double DUT3 = 26.5 * (s.Utah.getDem()/27.2);   
         if(RUT3 > DUT3){
             RH = RH + 1;
             RUTH++;
@@ -1343,8 +1342,8 @@ public class ResultsPage {
             DH = DH + 1;
             DUTH++;
         }
-        double RUT4 = 53.8 * (Utah.TrumpUT/45.1);
-        double DUT4 = 41.3 * (Utah.ClintonUT/27.2);   
+        double RUT4 = 53.8 * (s.Utah.getRep()/45.1);
+        double DUT4 = 41.3 * (s.Utah.getDem()/27.2);   
         if(RUT4 > DUT4){
             RH = RH + 1;
             RUTH++;
@@ -1353,6 +1352,5 @@ public class ResultsPage {
             DH = DH + 1;
             DUTH++;
         }
-        */
 	}
 }
