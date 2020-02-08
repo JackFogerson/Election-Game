@@ -2,6 +2,8 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
+import java.text.DecimalFormat;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -125,13 +127,14 @@ public class MainPage {
 	}
 	
 	public void statePoll(String state, Statistics s){
+	    DecimalFormat df2 = new DecimalFormat("#.##");
 		for(int i=0;i<s.accounts.size();i++) {
 			if(state.equals(s.accounts.get(i).getName())) {
 					id = s.accounts.get(i);
 					JOptionPane.showMessageDialog(null, 
-							"Trump: " + id.getRep() + "%" + "\n" + "Clinton: " + id.getDem() + "%"
-							+ "\n" + "Johnson: " + id.getLib() + "%" + "\n" + "Stein: " 
-							+ id.getGreen() + "%" + "\n" + "McMullin: " + id.getMcM() + "%" + "\n", state, JOptionPane.INFORMATION_MESSAGE, null);
+							"Trump: " + df2.format(id.getRep()*100) + "%" + "\n" + "Clinton: " + df2.format(id.getDem()*100) + "%"
+							+ "\n" + "Johnson: " + df2.format(id.getLib()*100) + "%" + "\n" + "Stein: " 
+							+ df2.format(id.getGreen()*100) + "%" + "\n" + "McMullin: " + df2.format(id.getMcM()*100) + "%" + "\n", state, JOptionPane.INFORMATION_MESSAGE, null);
 					break;
 			}
 		}		

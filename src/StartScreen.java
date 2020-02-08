@@ -128,7 +128,7 @@ public class StartScreen {
             clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
         } catch (Exception e) {
-            System.err.println("Put the music.wav file in the sound folder if you want to play background music, only optional!");
+            System.err.println("No Music File Found");
         }
     }
     
