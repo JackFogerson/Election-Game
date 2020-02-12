@@ -8,6 +8,10 @@ public class State {
 	double Lib;
 	double Green;
 	double McM;
+	int RH = 0;
+	int DH = 0;
+	int LH = 0;
+	int GH = 0;
 	
 	public State(String n, int ecv, int pop, double turnout, double r, double d, double l, double g, double m){
 		this.Name = n;
@@ -26,6 +30,13 @@ public class State {
 	public void changeLib(double l) { Lib += l; }	
 	public void changeGreen(double g) { Green += g; }	
 	public void changeMcM(double m) { McM += m; }
+	
+	public void addMember(String c) {
+		if(c == "r") { RH ++; }
+		if(c == "d") { DH ++; }
+		if(c == "l") { LH ++; }
+		if(c == "g") { GH ++; }
+	}
 	
 	public double getRep() { return Rep; }	
 	public double getDem() { return Dem; }	

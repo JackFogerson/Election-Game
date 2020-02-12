@@ -131,7 +131,7 @@ public class Events {
 				new Events(candidate + 1, s);
 			}
 			if(i == 3) {
-				s.California.changeLib(.02);
+				s.New_York.changeLib(.7);
 				eventFrame.dispose();
 				new Events(candidate + 1, s);
 			}
@@ -171,7 +171,7 @@ public class Events {
 				new ResultsPage(s);
 			}
 			if(i == 3) {
-				s.California.changeLib(.02);
+				s.California.changeLib(.7);
 				eventFrame.dispose();
 				new ResultsPage(s);
 			}
