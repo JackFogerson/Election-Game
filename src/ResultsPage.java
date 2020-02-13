@@ -9,15 +9,18 @@ import javax.swing.JTextField;
  * @author 	Jack Fogerson
  * @desc	Class handles ResultsPage setup
  */
-
+//handles ResultsPage setup and gives election results
 public class ResultsPage {
+	//initialize variables
 	JFrame mainFrame;
 	Statistics s;
 	JTextField results;
+	//senate seats that will not change party
 	int RS = 30;
     int DS = 37; 
     int LS = 0;
     int GS = 0;
+    //house seats that will not change party
     int RH = 1;
     //1 Washington
     int DH = 11; 
@@ -27,6 +30,7 @@ public class ResultsPage {
     int LH = 0;
     int GH = 0;  
     
+    //launchs resultspage
 	public ResultsPage(Statistics stat){
 		this.s = stat;
 		launchFrame();
@@ -34,8 +38,11 @@ public class ResultsPage {
 	
 	public void launchFrame(){
 		// Instantiate the frame
+		//get results from senate elections
 		senateResults();
+		//get results from house elections
 		houseResults();
+		//establish layout for frame
 		mainFrame = new JFrame("2016 Results: ");
 		mainFrame.setLayout(new GridLayout(3, 7));
 				

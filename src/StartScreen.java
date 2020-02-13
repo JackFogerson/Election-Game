@@ -2,7 +2,6 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.io.File;
-
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
@@ -35,9 +34,10 @@ public class StartScreen {
 		startScreenFrame = new JFrame("2016 Showdown: Choose your candidate!");
 		startScreenFrame.setLayout(new GridLayout(3, 2));
 		
+		//plays TitleMusic
 		audio();     
 		
-		//Create all the parts necessary for the loginFrame
+		//Create all candidate buttons for the loginFrame
 		JButton TrumpButton = new JButton   ("                 Trump                    ");
 		JButton ClintonButton = new JButton ("                 Clinton                  ");
 		JButton JohnsonButton = new JButton ("                 Johnson                  ");
@@ -69,15 +69,16 @@ public class StartScreen {
 	}
 	
 	//Method once candidate has been chosen
+	//gives rundown for each candidate
 	private void candidateChoose(String c) {
 		candidate = c;
 		if(candidate == "Trump") {
 			ImageIcon rp = new ImageIcon("RP_Photo.jpg");
 			JOptionPane.showMessageDialog(null, 
-					         "Donald Trump: To the surprise of most pundits, you were able to outlast and outfight 15 other candidates to accept the Republican nomination."
-					+ "\n" + "A controversial candidate, to say the least, now you must either move to a more unifying message for the general election or continue"
-					+ "\n" + "as you had during the nomination in hopes of using your motivated base to carry you to victory. While you may seem like the underdog, Hillary "
-					+ "\n" + "Clinton is a candidate with many exploitable flaws. Pulling off a win would be a great upset and allow you to change politics forever. The Republican Party is at your service. Good luck.", "Message from Reince Priebus", JOptionPane.INFORMATION_MESSAGE, rp);
+					         "Donald Trump: To the surprise of most pundits, you were able to outlast and outfight 15 other candidates to accept the Republican nomination. A"
+					+ "\n" + "controversial candidate, to say the least, now you must either move to a more unifying message for the general election or continue as you had during"
+					+ "\n" + "the nomination in hopes of using your motivated base to carry you to victory. While you may seem like the underdog, Hillary Clinton is a candidate"
+					+ "\n" + "with many exploitable flaws. Pulling off a win would be a great upset and allow you to change politics forever. The Republican Party is at your service. Good luck.", "Message from Reince Priebus", JOptionPane.INFORMATION_MESSAGE, rp);
 		}
 		else if(candidate == "Clinton") {
 			ImageIcon dws = new ImageIcon("DWS_Photo.jpg");
@@ -116,20 +117,25 @@ public class StartScreen {
 					+ "\n" + "Most of your hopes rest in Utah, and potentially Idaho, where a combination of the unpopularity of Trump and your background"
 					+ "\n" + "represents a chance to win the state. Hopefully you can harness Mormon hatred of Trump to your advantage. Good luck.", "Evan McMullin", JOptionPane.INFORMATION_MESSAGE, emm);
 		}
+		//after candidate message, dispose and begin game
 		startScreenFrame.dispose();
 		new MainPage(candidate);
 	}
 	
+	//method for playing titlemusic
     public static void audio() {
+    	//get music
         File file = new File("C:\\Users\\Jack\\git\\Election-Game\\TitleMusic.wav");
+        //if found, play music in a loop
         try {
             Clip clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
             clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
-        } catch (Exception e) {
+        } 
+        //error: no file found
+        catch (Exception e) {
             System.err.println("No Music File Found");
         }
-    }
-    
+    }    
 }

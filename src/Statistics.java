@@ -1,6 +1,8 @@
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+//set all the statistics for each state
+//Name, Electoral College votes, voting age pop, Rep%, Dem%, Lib%, Green%, McMullin%
 public class Statistics {
 	State Alabama = new State("Alabama", 9, 3741806, .6, .526, .389, .067, .014, 0);
 	State Alaska = new State("Alaska", 3, 550189, .57, .463, .372, .147, .045, 0);
@@ -21,7 +23,9 @@ public class Statistics {
 	State Kansas = new State("Kansas", 6, 2181355, .64, .465, .411, .108, .046, .013);
 	State Kentucky = new State("Kentucky", 8, 3400843, .56, .511, .394, .078, .02, .033);
 	State Louisiana = new State("Louisiana", 8, 3536183, .64, .519, .39, .073, .027, .016);
+	//StateWide Maine Vote
 	State Maine = new State("Maine", 2, 1071112, .69, .391, .491, .105, .039, .005);
+	//create states for Maine's 2 districts for CD voting
 	State Maine1 = new State("Maine1", 1, 5035556, .69, .363, .522, .1, .041, .004);
 	State Maine2 = new State("Maine2", 1, 5035556, .69, .422, .457, .11, .038, .006);
 	State Maryland = new State("Maryland", 10, 4625863, .68, .306, .604, .073, .033, .009);
@@ -32,7 +36,9 @@ public class Statistics {
 	State Mississippi = new State("Mississippi", 6, 2262810, .5, .485, .436, .063, .016, 0);
 	State Missouri = new State("Missouri", 10, 4670966, .63, .455, .44, .092, .024, .007);
 	State Montana = new State("Montana", 3, 798555, .71, .465, .385, .15, .043, .012);
+	//StateWide Vote for Nebraska
 	State Nebraska = new State("Nebraska", 2, 1414894, .68, .503, .38, .101, .023, 0);
+	//create states for Nebraska's 3 districts for CD voting
 	State Nebraska1 = new State("Nebraska1", 1, 471631, .68, .484, .4, .1, .024, 0);
 	State Nebraska2 = new State("Nebraska2", 1, 471631, .68, .449, .443, .093, .024, 0);
 	State Nebraska3 = new State("Nebraska3", 1, 471631, .68, .575, .295, .109, .019, 0);
@@ -64,8 +70,10 @@ public class Statistics {
 	
 	State Wyoming = new State("Wyoming", 3, 445830, .54, .549, .304, .126, .024, 0);
 
+	//create array of states
 	ArrayList<State> accounts = new ArrayList<State>();
 	
+	//add states to array of states
 	public Statistics() {
 		accounts.add(Alabama);
 		accounts.add(Alaska);
@@ -125,34 +133,47 @@ public class Statistics {
 		accounts.add(Wyoming);
 	}
 	
+	//gets voting % total from all states
 	public String getPoll(String c){
+		//initialize variables
 		double poll = 0;
 		double totVoters = 0;
 		double voters = 0;
 		double j = 0;
+		
+		//take voting percent for candidate for state
 		for(int i=0;i<accounts.size();i++) {
 			if(c == "Trump")    { j = accounts.get(i).getRep(); }
 			if(c == "Clinton")  { j = accounts.get(i).getDem(); }
 			if(c == "Johnson")  { j = accounts.get(i).getLib(); }
 			if(c == "Stein")    { j = accounts.get(i).getGreen(); }
 			if(c == "McMullin") { j = accounts.get(i).getMcM(); }
+			//add voters of state to total
 			totVoters += accounts.get(i).getTurnout() * accounts.get(i).getPop();
+			//multiply candidate % by turnout
 			voters = accounts.get(i).getTurnout() * accounts.get(i).getPop();
 			poll += j * voters;
 		}
+		//divide candidate votes by total voters and making a percent
 		poll = (poll/totVoters)*100;
-	    DecimalFormat df2 = new DecimalFormat("#.##");
+		//limit to 2 decimal places
+	    DecimalFormat df2 = new DecimalFormat("#.##");	    
 		return df2.format(poll);
 	}
 	
+	//gets winners from each state and assigns electoral college votes to winners
 	public int getECV(String c){
+		//add CD votes from non-winner-takes-all-states
 		accounts.add(Maine1);
 		accounts.add(Maine2);
 		accounts.add(Nebraska1);
 		accounts.add(Nebraska2);
 		accounts.add(Nebraska3);
+		
+		//starts process for counting ecvs
 		int ecv = 0;
 		for(int i=0;i<accounts.size();i++){
+			//assign ecvs for winer of state
 			if(c == "Trump"){
 				if(accounts.get(i).getRep() > accounts.get(i).getDem() && accounts.get(i).getRep() > accounts.get(i).getLib() && accounts.get(i).getRep() > accounts.get(i).getGreen() && accounts.get(i).getRep() > accounts.get(i).getMcM()){ 
 					ecv += accounts.get(i).getECV();
@@ -179,14 +200,18 @@ public class Statistics {
 				}
 			}
 		}
+		//remove CD from states arraylist
 		accounts.remove(Maine1);
 		accounts.remove(Maine2);
 		accounts.remove(Nebraska1);
 		accounts.remove(Nebraska2);
 		accounts.remove(Nebraska3);
+		
+		//return electoral college votes
 		return ecv;
 	}
 	
+	//gets state array
 	public ArrayList<State> getStates(){
 		return accounts;
 	}
