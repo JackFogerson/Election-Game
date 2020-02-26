@@ -161,6 +161,6 @@ public class MainPage {
 	public void campaign(Statistics s) {
 		//removes frame, launches events
 		mainFrame.dispose();
-		new Events(candidate,s);
+		new Events(candidate,0,s);
 	}	
 }

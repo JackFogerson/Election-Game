@@ -215,4 +215,113 @@ public class Statistics {
 	public ArrayList<State> getStates(){
 		return accounts;
 	}
+	
+	//method to increase conservative support nationwide
+	public void changeCon(String can, double perc){
+		//add non-winner-takes-all-states
+		accounts.add(Maine1);
+		accounts.add(Maine2);
+		accounts.add(Nebraska1);
+		accounts.add(Nebraska2);
+		accounts.add(Nebraska3);
+		
+		for(int i=0;i<accounts.size();i++){
+			//change cons% for each state
+			double change = perc * accounts.get(i).con;
+			if(can == "Trump"){
+				accounts.get(i).changeRep(change);
+			}
+			if(can == "Clinton") {
+				accounts.get(i).changeDem(change);
+			}
+			if(can == "Johnson") {
+				accounts.get(i).changeLib(change);
+			}
+			if(can == "Stein") {
+				accounts.get(i).changeGreen(change);
+			}
+			if(can == "McMullin") {
+				accounts.get(i).changeMcM(change);
+			}
+		}
+		//remove CD from states arraylist
+		accounts.remove(Maine1);
+		accounts.remove(Maine2);
+		accounts.remove(Nebraska1);
+		accounts.remove(Nebraska2);
+		accounts.remove(Nebraska3);
+	}
+	
+	//method to increase moderate support nationwide
+	public void changeMod(String can, double perc){
+		//add non-winner-takes-all-states
+		accounts.add(Maine1);
+		accounts.add(Maine2);
+		accounts.add(Nebraska1);
+		accounts.add(Nebraska2);
+		accounts.add(Nebraska3);
+		
+		for(int i=0;i<accounts.size();i++){
+			//change mod% for each state
+			double change = perc * accounts.get(i).mod;
+			if(can == "Trump"){
+				accounts.get(i).changeRep(change);
+			}
+			if(can == "Clinton") {
+				accounts.get(i).changeDem(change);
+			}
+			if(can == "Johnson") {
+				accounts.get(i).changeLib(change);
+			}
+			if(can == "Stein") {
+				accounts.get(i).changeGreen(change);
+			}
+			if(can == "McMullin") {
+				accounts.get(i).changeMcM(change);
+			}
+		}
+		//remove CD from states arraylist
+		accounts.remove(Maine1);
+		accounts.remove(Maine2);
+		accounts.remove(Nebraska1);
+		accounts.remove(Nebraska2);
+		accounts.remove(Nebraska3);
+	}
+	
+	//method to increase liberal support nationwide
+	public void changeLib(String can, double perc){
+		//add non-winner-takes-all-states
+		accounts.add(Maine1);
+		accounts.add(Maine2);
+		accounts.add(Nebraska1);
+		accounts.add(Nebraska2);
+		accounts.add(Nebraska3);
+		
+		for(int i=0;i<accounts.size();i++){
+			//change lib% for each state
+			double change = perc * accounts.get(i).lib;
+			if(can == "Trump"){
+				accounts.get(i).changeRep(change);
+			}
+			if(can == "Clinton") {
+				accounts.get(i).changeDem(change);
+			}
+			if(can == "Johnson") {
+				accounts.get(i).changeLib(change);
+			}
+			if(can == "Stein") {
+				accounts.get(i).changeGreen(change);
+			}
+			if(can == "McMullin") {
+				accounts.get(i).changeMcM(change);
+			}
+		}
+		//remove CD from states arraylist
+		accounts.remove(Maine1);
+		accounts.remove(Maine2);
+		accounts.remove(Nebraska1);
+		accounts.remove(Nebraska2);
+		accounts.remove(Nebraska3);
+	}
+	
 }

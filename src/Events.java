@@ -13,9 +13,8 @@ public class Events {
 	String candidate;
 	JFrame eventFrame;
 	
-	public Events(String c, Statistics stat) {
+	public Events(String c, int n, Statistics stat) {
 		this.candidate = c;
-		System.out.println(c);
 		this.s = stat;
         Random rand = new Random(); 
 		
@@ -39,7 +38,7 @@ public class Events {
 			je2(randInt);
 		}
 		
-		else if (c.equals("Johnson")) {
+		else if (c.equals("Johnson")&& n==0) {
 			eventFrame = new JFrame("Gary Johnson");
 			eventFrame.setLayout(new GridLayout(5, 1));
 					
@@ -77,7 +76,7 @@ public class Events {
 			eventFrame.setVisible(true);
 		}
 		
-		else if (c.equals("Johnson1")) {
+		else if (c.equals("Johnson")&&n==1) {
 			eventFrame = new JFrame("Gary Johnson");
 			eventFrame.setLayout(new GridLayout(5, 1));
 			
@@ -119,26 +118,29 @@ public class Events {
 	}
 
 	public void je1(int i) {
+		System.out.println("Johnson1");
 		if(candidate.equals("Johnson")) {
 			if(i == 1) {
 				s.Massachusetts.changeLib(.04);
 				eventFrame.dispose();
-				new Events(candidate + 1, s);
+				new Events(candidate, 1, s);
 			}
 			if(i == 2) {
 				s.Missouri.changeLib(.01);
 				eventFrame.dispose();
-				new Events(candidate + 1, s);
+				new Events(candidate, 1, s);
 			}
 			if(i == 3) {
 				s.New_York.changeLib(.7);
 				eventFrame.dispose();
-				new Events(candidate + 1, s);
+				new Events(candidate, 1, s);
 			}
 			if(i == 4) {
-				s.Alaska.changeLib(.09);
+				s.changeCon(candidate, .2);
+				s.changeCon("Clinton", -.13);
+				s.changeCon("Trump", -.07);
 				eventFrame.dispose();
-				new Events(candidate + 1, s);
+				new Events(candidate, 1, s);
 			}
 		}
 		else {
@@ -152,14 +154,15 @@ public class Events {
 				s.California.changeLib(.02);
 			}
 			if(i == 4) {
-				s.Alaska.changeLib(.09);
+				s.changeCon(candidate, .1);
+				s.changeCon("Clinton", -.1);
 			}
 		}
 	}
 
 	
 	public void je2(int i) {
-		if(candidate.equals("Johnson1")) {
+		if(candidate.equals("Johnson")) {
 			if(i == 1) {
 				s.Massachusetts.changeLib(.04);
 				eventFrame.dispose();
@@ -176,7 +179,9 @@ public class Events {
 				new ResultsPage(s);
 			}
 			if(i == 4) {
-				s.Alaska.changeLib(.09);
+				s.changeCon(candidate, .2);
+				s.changeMod("Clinton", -.15);
+				s.changeMod("Trump", -.05);
 				eventFrame.dispose();
 				new ResultsPage(s);
 			}
