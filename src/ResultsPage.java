@@ -2,6 +2,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -15,6 +16,7 @@ public class ResultsPage {
 	JFrame mainFrame;
 	Statistics s;
 	JTextField results;
+	JTextArea tresults;
 	//senate seats that will not change party
 	int RS = 30;
     int DS = 37; 
@@ -22,11 +24,11 @@ public class ResultsPage {
     int GS = 0;
     //house seats that will not change party
     int RH = 1;
-    //1 Washington
+    //1 R Washington
     int DH = 11; 
-    //9 California
-    //1 Oregon
-    //1 Washington
+    //9 D California
+    //1 D Oregon
+    //1 D Washington
     int LH = 0;
     int GH = 0;  
     
@@ -46,11 +48,14 @@ public class ResultsPage {
 		mainFrame = new JFrame("2016 Results: ");
 		mainFrame.setLayout(new GridLayout(3, 7));
 				
+		//show presidential results, get vote% and electoral college votes for each candidate
 		JTextField trumpResults = new JTextField("Trump: " + s.getPoll("Trump") + "%, " + s.getECV("Trump") + " ECV");
 		JTextField clintonResults = new JTextField("Clinton: " + s.getPoll("Clinton") + "%, " + s.getECV("Clinton") + " ECV");
 		JTextField johnsonResults = new JTextField("Johnson: " + s.getPoll("Johnson") + "%, " + s.getECV("Johnson") + " ECV");
 		JTextField steinResults = new JTextField("Stein: " + s.getPoll("Stein") + "%, " + s.getECV("Stein") + " ECV");
 		JTextField mcmullinResults = new JTextField("McMullin: " + s.getPoll("McMullin") + "%, " + s.getECV("McMullin") + " ECV");
+		
+		//results section: displays winner or tie
 		if(s.getECV("Trump")>270){
 			results = new JTextField("Results: Trump Wins!");
 		}
@@ -66,11 +71,13 @@ public class ResultsPage {
 		else if(s.getECV("McMullin")>270){
 			results = new JTextField("Results: McMullin Wins!");
 		}
+		//textarea for tie results for newline properties
 		else {
-			String resultText = "No one got the required votes, the race will now go to the house. The Results: ";
-			results = new JTextField(resultText + houseVote("Trump", "Clinton", "Johnson"));
+			String resultText = "\n \n \n \n \n No one got to 270 EC votes, the \n race goes to the house. The Results: \n";
+			tresults = new JTextArea(resultText + houseVote("Trump", "Clinton", "Johnson"));
 		}
 		
+		//shows gain or loses for senate
 		String repSenExp = "" + (-54+RS);
 		if(RS>54) {
 			repSenExp = "+" + (-54+RS);
@@ -82,32 +89,34 @@ public class ResultsPage {
 		String libSenExp = "+" + (0+LS);
 		String grnSenExp = "+" + (0+GS);
 		
+		//display senate results
 		JTextField repSenResults = new JTextField("Republican Senators: " + RS + ", " + repSenExp);
 		JTextField demSenResults = new JTextField("Democratic Senators: " + DS + ", " + demSenExp);
 		JTextField libSenResults = new JTextField("Libertarian Senators: " + LS + ", " + libSenExp);
-		JTextField grnSenResults = new JTextField("Green Senators: " + GS + ", " + grnSenExp);
-
+		JTextField grnSenResults = new JTextField("Green Senators: " + GS + ", " + grnSenExp);		
 		JTextField senResults;
+		//mcm wont affect these, placeholder values
 		JTextField filler = new JTextField("Independent Senators: 0");
 		JTextField filler2 = new JTextField("Independent Representatives: 0");
 
-		
-		if(RS>50 || (RS>=50 && s.getECV("Trump")>270)){
+		//different results based on election, take into account vp tiebreaker
+		if(RS>50 || (RS==50 && s.getECV("Trump")>270)){
 			senResults = new JTextField("Republicans retain control of the Senate");
 		}
-		else if(DS>50 || (DS>=50 && s.getECV("Clinton")>270)){
+		else if(DS>50 || (DS==50 && s.getECV("Clinton")>270)){
 			senResults = new JTextField("Democrats gain control of the Senate");
 		}
-		else if(LS>50 || (LS>=50 && s.getECV("Johnson")>270)){
+		else if(LS>50 || (LS==50 && s.getECV("Johnson")>270)){
 			senResults = new JTextField("Libertarians gain control of the Senate");
 		}
-		else if(GS>50 || (GS>=50 && s.getECV("Stein")>270)){
+		else if(GS>50 || (GS==50 && s.getECV("Stein")>270)){
 			senResults = new JTextField("Greens gain control of the Senate");
 		}
 		else {
 			senResults = new JTextField("The Senate is divided.");
 		}
 		
+		//shows gains or losses for house
 		String repHouseExp = "" + (-247+RH);
 		if(RH>247) {
 			repHouseExp = "+" + (-247+RH);
@@ -119,6 +128,7 @@ public class ResultsPage {
 		String libHouseExp = "+" + (0+LH);
 		String grnHouseExp = "+" + (0+GH);
 		
+		//show results for house election
 		JTextField repHouseResults = new JTextField("Republican Representatives: " + RH + ", " + repHouseExp);
 		JTextField demHouseResults = new JTextField("Democratic Representatives: " + DH + ", " + demHouseExp);
 		JTextField libHouseResults = new JTextField("Libertarian Representatives: " + LH + ", " + libHouseExp);
@@ -126,6 +136,7 @@ public class ResultsPage {
 		
 		JTextField houseResults;
 		
+		//display results for house elections
 		if(RH>=218){
 			houseResults = new JTextField("Republicans retain control of the House");
 		}
@@ -147,7 +158,12 @@ public class ResultsPage {
 		johnsonResults.setEditable(false);
 		steinResults.setEditable(false);
 		mcmullinResults.setEditable(false);
-		results.setEditable(false);
+		if(s.getECV("Trump")>270||s.getECV("Clinton")>270||s.getECV("Johnson")>270||s.getECV("Stein")>270||s.getECV("McMullin")>270){
+			results.setEditable(false);
+		}
+		else {
+			tresults.setEditable(false);
+		}
 		repSenResults.setEditable(false);
 		demSenResults.setEditable(false);
 		libSenResults.setEditable(false);
@@ -161,12 +177,18 @@ public class ResultsPage {
 		filler.setEditable(false);
 		filler2.setEditable(false);
 
+		//add JText to frame
 		mainFrame.add(trumpResults);
 		mainFrame.add(clintonResults);
 		mainFrame.add(johnsonResults);
 		mainFrame.add(steinResults);
 		mainFrame.add(mcmullinResults);
-		mainFrame.add(results);
+		if(s.getECV("Trump")>270||s.getECV("Clinton")>270||s.getECV("Johnson")>270||s.getECV("Stein")>270||s.getECV("McMullin")>270){
+			mainFrame.add(results);
+		}
+		else {
+			mainFrame.add(tresults);
+		}
 		mainFrame.add(repSenResults);
 		mainFrame.add(demSenResults);
 		mainFrame.add(libSenResults);
@@ -189,6 +211,8 @@ public class ResultsPage {
 		mainFrame.setVisible(true);	
 	}
 	
+	//go through senate results for each state and calculate winner
+	//based off of candidates result for each state
 	public void senateResults() {
         double RHI = 22.2 * (s.Hawaii.getRep()/30.0);
         double DHI = 73.6 * (s.Hawaii.getDem()/62.2);        
@@ -589,7 +613,9 @@ public class ResultsPage {
             LS = LS + 1;
         }  
 	}
-	
+
+	//go through house results for each state and calculate winner
+	//based off of candidates result for each state
 	public void houseResults(){
         double RAK1 = 50.5 * (s.Alaska.getRep()/51.3);
         double DAK1 = 36.5 * (s.Alaska.getDem()/36.6);       
@@ -1426,7 +1452,7 @@ public class ResultsPage {
             s.Arizona.addMember("g");
         }          
         double RAZ8 = 68.5 * (s.Arizona.getRep()/48.7);
-        double GAZ8 = 31.5 * (s.Arizona.getGreen()/1.3);                
+        double GAZ8 = 31.5 * ((s.Arizona.getGreen()+s.Arizona.getDem())/46.4);                
         if(RAZ8 > GAZ8){
             RH = RH + 1;
             s.Arizona.addMember("r");
@@ -1481,14 +1507,19 @@ public class ResultsPage {
         else if(LWY1 > RWY1 && LWY1 > DWY1){
             LH = LH + 1;
             s.Wyoming.addMember("l");
-        }      
+        } 
+        //next to add: Colorado
 	}
 	
+	//baseline method for house vote to elect president
 	public String houseVote(String C1, String C2, String C3) {
+		//starting vote total for each candidate
 		int V1 = 0;
 		int V2 = 0;
 		int V3 = 0;
+		//-1 to remove washington dc
 		int tie = -1;
+		//party with most house seats wins state
 		for(int i=0; i<s.accounts.size();i++) {
 			if(s.accounts.get(i).RH>s.accounts.get(i).DH && s.accounts.get(i).RH>s.accounts.get(i).LH) {
 				V1 ++;
@@ -1503,6 +1534,6 @@ public class ResultsPage {
 				tie ++;
 			}
 		}
-		return (C1 + ": " + V1 + ", " + C2 + ": " + V2 + ", " + C3 + ": " + V3 + ", " + tie);
+		return (" " + C1 + ": " + V1 + ", " + C2 + ": " + V2 + ", " + C3 + ": " + V3 + ", " + tie);
 	}
 }

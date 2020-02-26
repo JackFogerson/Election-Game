@@ -3,7 +3,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.text.DecimalFormat;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -16,16 +15,19 @@ import javax.swing.JOptionPane;
  */
 
 public class MainPage {
+	//initialize variables
 	JFrame mainFrame;
 	String candidate;
 	State id;
 	Statistics s = new Statistics();
 	
+	//sets candidate, launches frame
 	public MainPage(String c){
 		candidate = c;
 		launchFrame();
 	}
 	
+	//create main page frame
 	public void launchFrame(){
 		// Instantiate the frame
 		mainFrame = new JFrame("2016 - " + candidate + " Portal");
@@ -33,10 +35,12 @@ public class MainPage {
 		
 		GridBagConstraints c = new GridBagConstraints();
 		
+		//layout for frame
 		JButton pollButton = new JButton("Current Polls");
 		JButton campaignButton = new JButton("Start campaigning!");
 		JButton restartButton = new JButton("Restart");
 		
+		//events for button press
 		pollButton.addActionListener(event -> pollFrame());
 		campaignButton.addActionListener(event -> campaign(s));
 		restartButton.addActionListener(event -> logOut());
@@ -72,10 +76,12 @@ public class MainPage {
 		mainFrame.setVisible(true);	
 	}
 	
+	//frame for getting poll results
 	public void pollFrame(){
 		// Instantiate the frame
 		JFrame pollFrame = new JFrame("Polls");
 		pollFrame.setLayout(new GridBagLayout());
+		//list of states for drop down menu
 		String[] StateList = new String[s.accounts.size()];
 		for(int i=0; i<s.accounts.size(); i++) {
 			StateList[i] = ("" + s.accounts.get(i).getName());
@@ -87,7 +93,8 @@ public class MainPage {
 		JButton pollButton = new JButton("National Polls");
 		JButton HomeButton = new JButton("Home");
 		JComboBox statesPoll = new JComboBox(StateList);
-				
+		
+		//events for button presses
 		pollButton.addActionListener(event -> JOptionPane.showMessageDialog(null, 
 				"Trump: " + s.getPoll("Trump") + "%" + "\n" + "Clinton: " + s.getPoll("Clinton") + "%"
 				+ "\n" + "Johnson: " + s.getPoll("Johnson") + "%" + "\n" + "Stein: " 
@@ -126,8 +133,11 @@ public class MainPage {
 		pollFrame.setVisible(true);	
 	}
 	
+	//based on state selected, gets polling for that state
 	public void statePoll(String state, Statistics s){
+		//limit to 2 decimal places
 	    DecimalFormat df2 = new DecimalFormat("#.##");
+	    //iterate through states, if found get info and break loop
 		for(int i=0;i<s.accounts.size();i++) {
 			if(state.equals(s.accounts.get(i).getName())) {
 					id = s.accounts.get(i);
@@ -140,14 +150,16 @@ public class MainPage {
 		}		
 	}
 	
-	public int logOut(){
-		JOptionPane.showMessageDialog(null, "Oof!");
+	//dispose frame and restart sim,
+	//bug: music will play another iteration
+	public void logOut(){
 		mainFrame.dispose();
 		new StartScreen();
-		return 1;
 	}
 	
+	//starts game process, leads to event frames
 	public void campaign(Statistics s) {
+		//removes frame, launches events
 		mainFrame.dispose();
 		new Events(candidate,s);
 	}	

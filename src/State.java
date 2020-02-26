@@ -27,9 +27,13 @@ public class State {
 	int LH = 0;
 	//Green House Seats
 	int GH = 0;
+	//percent of state that is conservative, moderate, and liberal
+	double con;
+	double mod;
+	double lib;
 	
 	//basic constructor, sets given variables
-	public State(String n, int ecv, int pop, double turnout, double r, double d, double l, double g, double m){
+	public State(String n, int ecv, int pop, double turnout, double r, double d, double l, double g, double m, double cons, double mode, double libe){
 		this.Name = n;
 		this.ECV = ecv;
 		this.Pop = pop;
@@ -39,6 +43,9 @@ public class State {
 		this.Lib = l;
 		this.Green = g;
 		this.McM = m;
+		this.con = cons;
+		this.mod = mode;
+		this.lib = libe;
 	}
 	
 	//methods to change state voting percent for each candidate
