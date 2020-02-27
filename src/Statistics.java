@@ -237,10 +237,10 @@ public class Statistics {
 			if(can == "Johnson") {
 				accounts.get(i).changeLib(change);
 			}
-			if(can == "Stein") {
+			if(can == "Stein" && accounts.get(i).getGreen()!=0) {
 				accounts.get(i).changeGreen(change);
 			}
-			if(can == "McMullin") {
+			if(can == "McMullin" && accounts.get(i).getMcM()!=0) {
 				accounts.get(i).changeMcM(change);
 			}
 		}
