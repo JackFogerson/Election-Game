@@ -38,7 +38,31 @@ public class ResultsPage {
 		launchFrame();
 	}
 	
-	public void launchFrame(){
+	public void launchFrame(){	
+		//culling process for third party
+		for(int i=0;i<s.accounts.size();i++) {
+			if(s.accounts.get(i).getLib()<10) {
+				double temp1 = (s.accounts.get(i).getLib()/2);
+				s.accounts.get(i).changeLib(-temp1);
+				s.accounts.get(i).changeRep(temp1/6);
+				s.accounts.get(i).changeDem(temp1/2);
+				s.accounts.get(i).changeMcM(temp1/3);
+			}
+			if(s.accounts.get(i).getMcM()<10) {
+				double temp2 = (s.accounts.get(i).getMcM()/2);
+				s.accounts.get(i).changeMcM(-temp2);
+				s.accounts.get(i).changeRep(temp2/3);
+				s.accounts.get(i).changeDem(temp2/6);
+				s.accounts.get(i).changeMcM(temp2/2);
+			}
+			if(s.accounts.get(i).getGreen()<10) {
+				double temp3 = (s.accounts.get(i).getGreen()/2);
+				s.accounts.get(i).changeGreen(-temp3);
+				s.accounts.get(i).changeRep(temp3/6);
+				s.accounts.get(i).changeDem(2*temp3/6);
+				s.accounts.get(i).changeLib(temp3/6);
+			}
+		}
 		// Instantiate the frame
 		//get results from senate elections
 		senateResults();
@@ -214,9 +238,9 @@ public class ResultsPage {
 	//go through senate results for each state and calculate winner
 	//based off of candidates result for each state
 	public void senateResults() {
-        double RHI = 22.2 * (s.Hawaii.getRep()/30.0);
-        double DHI = 73.6 * (s.Hawaii.getDem()/62.2);        
-        double LHI = 1.6 * (s.Hawaii.getLib()/3.7);        
+        double RHI = 22.2 * ((s.Hawaii.getRep()/30.0)/2);
+        double DHI = 73.6 * ((s.Hawaii.getDem()/62.2)/2);        
+        double LHI = 1.6 * ((s.Hawaii.getLib()/3.7)/2);        
         if(RHI > DHI && RHI > LHI){
             RS = RS + 1;
         }
@@ -226,9 +250,9 @@ public class ResultsPage {
         else if(LHI > DHI && LHI > RHI){
             LS = LS + 1;
         }  
-        double RAK = 44.3 * (s.Alaska.getRep()/51.3);
-        double DAK = 11.1 * (s.Alaska.getDem()/36.6);        
-        double LAK = 29.5 * (s.Alaska.getLib()/5.9);  
+        double RAK = 44.3 * ((s.Alaska.getRep()/51.3)/2);
+        double DAK = 11.1 * ((s.Alaska.getDem()/36.6)/2);        
+        double LAK = 29.5 * ((s.Alaska.getLib()/5.9)/2);  
         if(RAK > DAK && RAK > LAK){
             RS = RS + 1;
         }
@@ -238,10 +262,10 @@ public class ResultsPage {
         else if(LAK > DAK && LAK > RAK){
             LS = LS + 1;
         }
-        double ROR = 33.6 * (s.Oregon.getRep()/39.1);
-        double DOR = 56.7 * (s.Oregon.getDem()/50.1);        
-        double LOR = 1.2  * (s.Oregon.getLib()/4.7);  
-        double GOR = 2.4  * (s.Oregon.getGreen()/2.5);          
+        double ROR = 33.6 * ((s.Oregon.getRep()/39.1)/2);
+        double DOR = 56.7 * ((s.Oregon.getDem()/50.1)/2);        
+        double LOR = 1.2  * ((s.Oregon.getLib()/4.7)/2);  
+        double GOR = 2.4  * ((s.Oregon.getGreen()/2.5)/2);          
         if(ROR > DOR && ROR > LOR && ROR > GOR){
             RS = RS + 1;
         }
@@ -254,41 +278,41 @@ public class ResultsPage {
         else if(GOR > DOR && GOR > ROR && GOR > LOR){
             GS = GS + 1;
         }  
-        double RWA = 40.9 * (s.Washington.getRep()/36.8);
-        double DWA = 59.1 * (s.Washington.getDem()/52.5);                
+        double RWA = 40.9 * ((s.Washington.getRep()/36.8)/2);
+        double DWA = 59.1 * ((s.Washington.getDem()/52.5)/2);                
         if(RWA > DWA){
             RS = RS + 1;
         }
         else if(DWA > RWA){
             DS = DS + 1;
         }    
-        double RNV = 44.7 * (s.Nevada.getRep()/45.5);
-        double DNV = 47.1 * (s.Nevada.getDem()/47.9);                
+        double RNV = 44.7 * ((s.Nevada.getRep()/45.5)/2);
+        double DNV = 47.1 * ((s.Nevada.getDem()/47.9)/2);                
         if(RNV > DNV){
             RS = RS + 1;
         }
         else if(DNV > RNV){
             DS = DS + 1;
         }   
-        double RID = 66.1 * (s.Idaho.getRep()/59.3);
-        double DID = 27.8 * (s.Idaho.getDem()/27.5);                
+        double RID = 66.1 * ((s.Idaho.getRep()/59.3)/2);
+        double DID = 27.8 * ((s.Idaho.getDem()/27.5)/2);                
         if(RID > DID){
             RS = RS + 1;
         }
         else if(DID > RID){
             DS = DS + 1;
         }  
-        double RUT = 68.0 * (s.Utah.getRep()/45.5);
-        double DUT = 27.4 * (s.Utah.getDem()/27.5);                
+        double RUT = 68.0 * ((s.Utah.getRep()/45.5)/2);
+        double DUT = 27.4 * ((s.Utah.getDem()/27.5)/2);                
         if(RUT > DUT){
             RS = RS + 1;
         }
         else if(DUT > RUT){
             DS = DS + 1;
         } 
-        double RAZ = 33.6 * (s.Arizona.getRep()/39.1);
-        double DAZ = 56.7 * (s.Arizona.getDem()/50.1);        
-        double GAZ = 2.4  * (s.Arizona.getGreen()/2.5);          
+        double RAZ = 33.6 * ((s.Arizona.getRep()/39.1)/2);
+        double DAZ = 56.7 * ((s.Arizona.getDem()/50.1)/2);        
+        double GAZ = 2.4  * ((s.Arizona.getGreen()/2.5)/2);          
         if(RAZ > DAZ && RAZ > GAZ){
             RS = RS + 1;
         }
@@ -298,10 +322,10 @@ public class ResultsPage {
         else if(GAZ > RAZ && GAZ > DAZ){
             GS = GS + 1;
         } 
-        double RCO = 45.3 * (s.Colorado.getRep()/43.3);
-        double DCO = 49.2 * (s.Colorado.getDem()/48.2);        
-        double LCO = 3.5  * (s.Colorado.getLib()/5.2);  
-        double GCO = 1.2  * (s.Colorado.getGreen()/1.4);          
+        double RCO = 45.3 * ((s.Colorado.getRep()/43.3)/2);
+        double DCO = 49.2 * ((s.Colorado.getDem()/48.2)/2);        
+        double LCO = 3.5  * ((s.Colorado.getLib()/5.2)/2);  
+        double GCO = 1.2  * ((s.Colorado.getGreen()/1.4)/2);          
         if(RCO > DCO && RCO > LCO && RCO > GCO){
             RS = RS + 1;
         }
@@ -314,9 +338,9 @@ public class ResultsPage {
         else if(GCO > DCO && GCO > RCO && GCO > LCO){
             GS = GS + 1;
         }
-        double RND = 78.6 * (s.North_Dakota.getRep()/63.0);
-        double DND = 17.0 * (s.North_Dakota.getDem()/27.2);        
-        double LND = 3.1  * (s.North_Dakota.getLib()/6.2);          
+        double RND = 78.6 * ((s.North_Dakota.getRep()/63.0)/2);
+        double DND = 17.0 * ((s.North_Dakota.getDem()/27.2)/2);        
+        double LND = 3.1  * ((s.North_Dakota.getLib()/6.2)/2);          
         if(RND > DND && RND > LND){
             RS = RS + 1;
         }
@@ -326,17 +350,17 @@ public class ResultsPage {
         else if(LND > RND && LND > DND){
             LS = LS + 1;
         } 
-        double RSD = 71.8 * (s.South_Dakota.getRep()/61.5);
-        double DSD = 28.2 * (s.South_Dakota.getDem()/31.7);                
+        double RSD = 71.8 * ((s.South_Dakota.getRep()/61.5)/2);
+        double DSD = 28.2 * ((s.South_Dakota.getDem()/31.7)/2);                
         if(RSD > DSD){
             RS = RS + 1;
         }
         else if(DSD > RSD){
             DS = DS + 1;
         }
-        double RKS = 62.4 * (s.Kansas.getRep()/56.7);
-        double DKS = 32.1 * (s.Kansas.getDem()/36.1);        
-        double LKS = 5.5  * (s.Kansas.getLib()/4.7);          
+        double RKS = 62.4 * ((s.Kansas.getRep()/56.7)/2);
+        double DKS = 32.1 * ((s.Kansas.getDem()/36.1)/2);        
+        double LKS = 5.5  * ((s.Kansas.getLib()/4.7)/2);          
         if(RKS > DKS && RKS > LKS){
             RS = RS + 1;
         }
@@ -346,9 +370,9 @@ public class ResultsPage {
         else if(LKS > RKS && LKS > DKS){
             LS = LS + 1;
         } 
-        double ROK = 67.7 * (s.Oklahoma.getRep()/65.3);
-        double DOK = 24.6 * (s.Oklahoma.getDem()/28.9);        
-        double LOK = 3.0  * (s.Oklahoma.getLib()/5.7);          
+        double ROK = 67.7 * ((s.Oklahoma.getRep()/65.3)/2);
+        double DOK = 24.6 * ((s.Oklahoma.getDem()/28.9)/2);        
+        double LOK = 3.0  * ((s.Oklahoma.getLib()/5.7)/2);          
         if(ROK > DOK && ROK > LOK){
             RS = RS + 1;
         }
@@ -358,9 +382,9 @@ public class ResultsPage {
         else if(LOK > ROK && LOK > DOK){
             LS = LS + 1;
         } 
-        double RIA = 60.2 * (s.Iowa.getRep()/51.1);
-        double DIA = 35.7 * (s.Iowa.getDem()/41.7);        
-        double LIA = 2.7  * (s.Iowa.getLib()/3.8);          
+        double RIA = 60.2 * ((s.Iowa.getRep()/51.1)/2);
+        double DIA = 35.7 * ((s.Iowa.getDem()/41.7)/2);        
+        double LIA = 2.7  * ((s.Iowa.getLib()/3.8)/2);          
         if(RIA > DIA && RIA > LIA){
             RS = RS + 1;
         }
@@ -370,10 +394,10 @@ public class ResultsPage {
         else if(LIA > RIA && LIA > DIA){
             LS = LS + 1;
         }   
-        double RMO = 49.4 * (s.Missouri.getRep()/56.4);
-        double DMO = 46.2 * (s.Missouri.getDem()/37.9);        
-        double LMO = 2.4  * (s.Missouri.getLib()/3.4);  
-        double GMO = 1.1  * (s.Missouri.getGreen()/0.9);          
+        double RMO = 49.4 * ((s.Missouri.getRep()/56.4)/2);
+        double DMO = 46.2 * ((s.Missouri.getDem()/37.9)/2);        
+        double LMO = 2.4  * ((s.Missouri.getLib()/3.4)/2);  
+        double GMO = 1.1  * ((s.Missouri.getGreen()/0.9)/2);          
         if(RMO > DMO && RMO > LMO && RMO > GMO){
             RS = RS + 1;
         }
@@ -386,9 +410,9 @@ public class ResultsPage {
         else if(GMO > DMO && GMO > RMO && GMO > LMO){
             GS = GS + 1;
         }         
-        double RAR = 59.8 * (s.Arkansas.getRep()/60.6);
-        double DAR = 36.2 * (s.Arkansas.getDem()/33.7);        
-        double LAR = 4.0  * (s.Arkansas.getLib()/2.6);          
+        double RAR = 59.8 * ((s.Arkansas.getRep()/60.6)/2);
+        double DAR = 36.2 * ((s.Arkansas.getDem()/33.7)/2);        
+        double LAR = 4.0  * ((s.Arkansas.getLib()/2.6)/2);          
         if(RAR > DAR && RAR > LAR){
             RS = RS + 1;
         }
@@ -398,25 +422,25 @@ public class ResultsPage {
         else if(LAR > RAR && LAR > DAR){
             LS = LS + 1;
         }    
-        double RLA1 = 25*(s.Louisiana.getRep()/58.1);
-        double RLA2 = 15.4*(s.Louisiana.getRep()/58.1);        
-        double DLA1 = 17.5*(s.Louisiana.getDem()/38.4);        
-        double DLA2 = 12.5*(s.Louisiana.getDem()/38.4);   
+        double RLA1 = 25*((s.Louisiana.getRep()/58.1)/2);
+        double RLA2 = 15.4*((s.Louisiana.getRep()/58.1)/2);        
+        double DLA1 = 17.5*((s.Louisiana.getDem()/38.4)/2);        
+        double DLA2 = 12.5*((s.Louisiana.getDem()/38.4)/2);   
         if(RLA1 > 50 && RLA1 > DLA1){
         	RS = RS + 1;
         }  
         else if(DLA1 > 50 && DLA1 > RLA1){
         	DS = DS + 1;
         }     
-        else if(RLA1 > DLA1 && RLA2 > DLA2) {
+        else if(RLA1 > DLA1 && RLA2 > DLA1) {
         	RS = RS + 1;
         }
-        else if(DLA1 > RLA1 && DLA2 > RLA2) {
+        else if(DLA1 > RLA1 && DLA2 > RLA1) {
         	DS = DS + 1;
         }
         else{
-                double RLA = 60.7*(s.Louisiana.getRep()/58.1);
-                double DLA = 39.3*(s.Louisiana.getDem()/38.4); 
+                double RLA = 60.7*((s.Louisiana.getRep()/58.1)/2);
+                double DLA = 39.3*((s.Louisiana.getDem()/38.4)/2); 
                 if(RLA>DLA){
                     RS = RS + 1;
                 }
@@ -424,17 +448,17 @@ public class ResultsPage {
                     DS = DS + 1;
                 }
             }
-        double RAL = 64.2 * (s.Alabama.getRep()/62.1);
-        double DAL = 35.8 * (s.Alabama.getDem()/34.4);                
+        double RAL = 64.2 * ((s.Alabama.getRep()/62.1)/2);
+        double DAL = 35.8 * ((s.Alabama.getDem()/34.4)/2);                
         if(RAL > DAL){
             RS = RS + 1;
         }
         else if(DAL > RAL){
             DS = DS + 1;
         }      
-        double RFL = 52.0 * (s.Florida.getRep()/48.6);
-        double DFL = 44.3 * (s.Florida.getDem()/47.4);        
-        double LFL = 2.1  * (s.Florida.getLib()/2.2);          
+        double RFL = 52.0 * ((s.Florida.getRep()/48.6)/2);
+        double DFL = 44.3 * ((s.Florida.getDem()/47.4)/2);        
+        double LFL = 2.1  * ((s.Florida.getLib()/2.2)/2);          
         if(RFL > DFL && RFL > LFL){
             RS = RS + 1;
         }
@@ -444,9 +468,9 @@ public class ResultsPage {
         else if(LFL > RFL && LFL > DFL){
             LS = LS + 1;
         } 
-        double RGA = 55.0 * (s.Georgia.getRep()/50.4);
-        double DGA = 40.8 * (s.Georgia.getDem()/45.3);        
-        double LGA = 4.2  * (s.Georgia.getLib()/3.0);          
+        double RGA = 55.0 * ((s.Georgia.getRep()/50.4)/2);
+        double DGA = 40.8 * ((s.Georgia.getDem()/45.3)/2);        
+        double LGA = 4.2  * ((s.Georgia.getLib()/3.0)/2);          
         if(RGA > DGA && RGA > LGA){
             RS = RS + 1;
         }
@@ -456,17 +480,17 @@ public class ResultsPage {
         else if(LGA > RGA && LGA > DGA){
             LS = LS + 1;
         } 
-        double RSC = 60.5 * (s.South_Carolina.getRep()/54.9);
-        double DSC = 37.0 * (s.South_Carolina.getDem()/40.7);                
+        double RSC = 60.5 * ((s.South_Carolina.getRep()/54.9)/2);
+        double DSC = 37.0 * ((s.South_Carolina.getDem()/40.7)/2);                
         if(RSC > DSC){
             RS = RS + 1;
         }
         else if(DSC > RSC){
             DS = DS + 1;
         }  
-        double RNC = 51.1 * (s.North_Carolina.getRep()/49.8);
-        double DNC = 45.3 * (s.North_Carolina.getDem()/46.2);        
-        double LNC = 3.6  * (s.North_Carolina.getLib()/2.7);          
+        double RNC = 51.1 * ((s.North_Carolina.getRep()/49.8)/2);
+        double DNC = 45.3 * ((s.North_Carolina.getDem()/46.2)/2);        
+        double LNC = 3.6  * ((s.North_Carolina.getLib()/2.7)/2);          
         if(RNC > DNC && RNC > LNC){
             RS = RS + 1;
         }
@@ -476,9 +500,9 @@ public class ResultsPage {
         else if(LNC > RNC && LNC > DNC){
             LS = LS + 1;
         } 
-        double RWI = 50.2 * (s.Wisconsin.getRep()/47.2);
-        double DWI = 46.8 * (s.Wisconsin.getDem()/46.5);        
-        double LWI = 3.0  * (s.Wisconsin.getLib()/3.6);          
+        double RWI = 50.2 * ((s.Wisconsin.getRep()/47.2)/2);
+        double DWI = 46.8 * ((s.Wisconsin.getDem()/46.5)/2);        
+        double LWI = 3.0  * ((s.Wisconsin.getLib()/3.6)/2);          
         if(RWI > DWI && RWI > LWI){
             RS = RS + 1;
         }
@@ -488,10 +512,10 @@ public class ResultsPage {
         else if(LWI > RWI && LWI > DWI){
             LS = LS + 1;
         } 
-        double RIL = 40.2 * (s.Illinois.getRep()/38.4);
-        double DIL = 54.4 * (s.Illinois.getDem()/55.2);        
-        double LIL = 3.2  * (s.Illinois.getLib()/3.7);  
-        double GIL = 2.1  * (s.Illinois.getGreen()/1.4);          
+        double RIL = 40.2 * ((s.Illinois.getRep()/38.4)/2);
+        double DIL = 54.4 * ((s.Illinois.getDem()/55.2)/2);        
+        double LIL = 3.2  * ((s.Illinois.getLib()/3.7)/2);  
+        double GIL = 2.1  * ((s.Illinois.getGreen()/1.4)/2);          
         if(RIL > DIL && RIL > LIL && RIL > GIL){
             RS = RS + 1;
         }
@@ -504,17 +528,17 @@ public class ResultsPage {
         else if(GIL > DIL && GIL > RIL && GIL > LIL){
             GS = GS + 1;
         }      
-        double RKY = 57.3 * (s.Kentucky.getRep()/62.5);
-        double DKY = 42.7 * (s.Kentucky.getDem()/32.7);                
+        double RKY = 57.3 * ((s.Kentucky.getRep()/62.5)/2);
+        double DKY = 42.7 * ((s.Kentucky.getDem()/32.7)/2);                
         if(RKY > DKY){
             RS = RS + 1;
         }
         else if(DKY > RKY){
             DS = DS + 1;
         }     
-        double RIN = 52.1 * (s.Indiana.getRep()/56.5);
-        double DIN = 42.4 * (s.Indiana.getDem()/37.5);        
-        double LIN = 5.5  * (s.Indiana.getLib()/4.9);          
+        double RIN = 52.1 * ((s.Indiana.getRep()/56.5)/2);
+        double DIN = 42.4 * ((s.Indiana.getDem()/37.5)/2);        
+        double LIN = 5.5  * ((s.Indiana.getLib()/4.9)/2);          
         if(RIN > DIN && RIN > LIN){
             RS = RS + 1;
         }
@@ -524,9 +548,9 @@ public class ResultsPage {
         else if(LIN > RIN && LIN > DIN){
             LS = LS + 1;
         }      
-        double ROH = 58.3 * (s.Ohio.getRep()/51.3);
-        double DOH = 36.9 * (s.Ohio.getDem()/43.2);        
-        double GOH= 1.6  * (s.Ohio.getGreen()/0.8);          
+        double ROH = 58.3 * ((s.Ohio.getRep()/51.3)/2);
+        double DOH = 36.9 * ((s.Ohio.getDem()/43.2)/2);        
+        double GOH = 1.6  * ((s.Ohio.getGreen()/0.8)/2);          
         if(ROH > DOH && ROH > GOH){
             RS = RS + 1;
         }
@@ -536,9 +560,9 @@ public class ResultsPage {
         else if(GOH> ROH && GOH> DOH){
             GS = GS + 1;
         }  
-        double RMD = 36.4 * (s.Maryland.getRep()/33.9);
-        double DMD = 60.4 * (s.Maryland.getDem()/60.3);        
-        double GMD= 3.2  * (s.Maryland.getGreen()/1.3);          
+        double RMD = 36.4 * ((s.Maryland.getRep()/33.9)/2);
+        double DMD = 60.4 * ((s.Maryland.getDem()/60.3)/2);        
+        double GMD = 3.2  * ((s.Maryland.getGreen()/1.3)/2);          
         if(RMD > DMD && RMD > GMD){
             RS = RS + 1;
         }
@@ -548,9 +572,9 @@ public class ResultsPage {
         else if(GMD> RMD && GMD> DMD){
             GS = GS + 1;
         } 
-        double RPA = 48.9 * (s.Pennsylvania.getRep()/48.2);
-        double DPA = 47.2 * (s.Pennsylvania.getDem()/47.5);        
-        double LPA= 3.9  * (s.Pennsylvania.getLib()/2.4);          
+        double RPA = 48.9 * ((s.Pennsylvania.getRep()/48.2)/2);
+        double DPA = 47.2 * ((s.Pennsylvania.getDem()/47.5)/2);        
+        double LPA = 3.9  * ((s.Pennsylvania.getLib()/2.4)/2);          
         if(RPA > DPA && RPA > LPA){
             RS = RS + 1;
         }
@@ -560,10 +584,10 @@ public class ResultsPage {
         else if(LPA> RPA && LPA> DPA){
             LS = LS + 1;
         }
-        double RNY = 27.4 * (s.New_York.getRep()/36.5);
-        double DNY = 70.4 * (s.New_York.getDem()/59.0);        
-        double LNY = 0.6  * (s.New_York.getLib()/2.3);  
-        double GNY = 1.5  * (s.New_York.getGreen()/1.4);          
+        double RNY = 27.4 * ((s.New_York.getRep()/36.5)/2);
+        double DNY = 70.4 * ((s.New_York.getDem()/59.0)/2);        
+        double LNY = 0.6  * ((s.New_York.getLib()/2.3)/2);  
+        double GNY = 1.5  * ((s.New_York.getGreen()/1.4)/2);          
         if(RNY > DNY && RNY > LNY && RNY > GNY){
             RS = RS + 1;
         }
@@ -576,10 +600,10 @@ public class ResultsPage {
         else if(GNY > DNY && GNY > RNY && GNY > LNY){
             GS = GS + 1;
         }       
-        double RCT = 34.9 * (s.Connecticut.getRep()/40.9);
-        double DCT = 62.9 * (s.Connecticut.getDem()/54.6);        
-        double LCT = 1.1  * (s.Connecticut.getLib()/3.0);  
-        double GCT = 1.0  * (s.Connecticut.getDem()/1.4);          
+        double RCT = 34.9 * ((s.Connecticut.getRep()/40.9)/2);
+        double DCT = 62.9 * ((s.Connecticut.getDem()/54.6)/2);        
+        double LCT = 1.1  * ((s.Connecticut.getLib()/3.0)/2);  
+        double GCT = 1.0  * ((s.Connecticut.getDem()/1.4)/2);          
         if(RCT > DCT && RCT > LCT && RCT > GCT){
             RS = RS + 1;
         }
@@ -592,17 +616,17 @@ public class ResultsPage {
         else if(GCT > DCT && GCT > RCT && GCT > LCT){
             GS = GS + 1;
         }         
-        double RVT = 33.1 * (s.Vermont.getRep()/30.3);
-        double DVT = 61.3 * (s.Vermont.getDem()/56.7);                
+        double RVT = 33.1 * ((s.Vermont.getRep()/30.3)/2);
+        double DVT = 61.3 * ((s.Vermont.getDem()/56.7)/2);                
         if(RVT > DVT){
             RS = RS + 1;
         }
         else if(DVT > RVT){
             DS = DS + 1;
         }     
-        double RNH = 47.9 * (s.New_Hampshire.getRep()/46.5);
-        double DNH = 48.0 * (s.New_Hampshire.getDem()/46.8);        
-        double LNH= 1.8  * (s.New_Hampshire.getLib()/4.1);          
+        double RNH = 47.9 * ((s.New_Hampshire.getRep()/46.5)/2);
+        double DNH = 48.0 * ((s.New_Hampshire.getDem()/46.8)/2);        
+        double LNH = 1.8  * ((s.New_Hampshire.getLib()/4.1)/2);          
         if(RNH > DNH && RNH > LNH){
             RS = RS + 1;
         }

@@ -22,39 +22,39 @@ public class Events {
 		
         //trump event chain
 		if (c.equals("Trump") && n == 0) {
-			int randInt = rand.nextInt(4) + 1;
+			int randInt = rand.nextInt(100) + 1;
 			je1(randInt);
-			randInt = rand.nextInt(4) + 1;
+			randInt = rand.nextInt(100) + 1;
 			me1(randInt);	
-			randInt = rand.nextInt(4) + 1;
+			randInt = rand.nextInt(100) + 1;
 			se1(randInt);
 		}
 		
 		else if (c.equals("Trump") && n == 1) {
-			int randInt = rand.nextInt(4) + 1;
+			int randInt = rand.nextInt(100) + 1;
 			je2(randInt);			
 		}
 		
 		//clinton event chain
 		else if (c.equals("Clinton") && n == 0) {
-			int randInt = rand.nextInt(4) + 1;
+			int randInt = rand.nextInt(100) + 1;
 			je1(randInt);
-			randInt = rand.nextInt(4) + 1;
+			randInt = rand.nextInt(100) + 1;
 			me1(randInt);
-			randInt = rand.nextInt(4) + 1;
+			randInt = rand.nextInt(100) + 1;
 			se1(randInt);
 		}
 		
 		else if (c.equals("Clinton") && n == 1) {
-			int randInt = rand.nextInt(4) + 1;
+			int randInt = rand.nextInt(100) + 1;
 			je2(randInt);
 		}
 		
 		//Johnson event chain
 		else if (c.equals("Johnson")&& n==0) {
-			int randInt = rand.nextInt(4) + 1;
+			int randInt = rand.nextInt(100) + 1;
 			me1(randInt);
-			randInt = rand.nextInt(4) + 1;
+			randInt = rand.nextInt(100) + 1;
 			se1(randInt);
 			eventFrame = new JFrame("Gary Johnson");
 			eventFrame.setLayout(new GridLayout(5, 1));
@@ -125,9 +125,9 @@ public class Events {
 		
 		//stein event chain
 		else if (c.equals("Stein") && n == 0) {
-			int randInt = rand.nextInt(4) + 1;
+			int randInt = rand.nextInt(100) + 1;
 			je1(randInt);
-			randInt = rand.nextInt(4) + 1;
+			randInt = rand.nextInt(100) + 1;
 			me1(randInt);	
 			eventFrame = new JFrame("Jill Stein");
 			eventFrame.setLayout(new GridLayout(5, 1));
@@ -167,15 +167,15 @@ public class Events {
 		}
 		
 		else if (c.equals("Stein") && n == 1) {
-			int randInt = rand.nextInt(4) + 1;
+			int randInt = rand.nextInt(100) + 1;
 			je2(randInt);
 		}
 		
 		//mcmullin event chain
 		else if (c.equals("McMullin") && n == 0) {
-			int randInt = rand.nextInt(4) + 1;
+			int randInt = rand.nextInt(100) + 1;
 			je1(randInt);
-			randInt = rand.nextInt(4) + 1;
+			randInt = rand.nextInt(100) + 1;
 			se1(randInt);
 			eventFrame = new JFrame("Evan McMullin");
 			eventFrame.setLayout(new GridLayout(5, 1));
@@ -215,7 +215,7 @@ public class Events {
 		}
 		
 		else if (c.equals("McMullin") && n == 1) {
-			int randInt = rand.nextInt(4) + 1;
+			int randInt = rand.nextInt(100) + 1;
 			je2(randInt);
 		}
 		
@@ -295,7 +295,7 @@ public class Events {
 			}
 		}
 		else {
-			if(i == 1) {
+			if(i <= 60) {
 				s.changeLib("Johnson", .03);
 				s.changeLib("Stein", -.01);
 				s.changeLib("Clinton", -.005);
@@ -310,7 +310,7 @@ public class Events {
 				s.Massachusetts.changeDem(-.01);
 				JOptionPane.showMessageDialog(null, "Johnson chooses Bill Weld as his VP");
 			}
-			if(i == 2) {
+			if(i > 60 && i <= 90) {
 				s.changeLib("Johnson", -.04);
 				s.changeLib("Trump", .01);
 				s.changeLib("Clinton", .02);
@@ -324,7 +324,7 @@ public class Events {
 				s.Missouri.changeRep(-.02);
 				JOptionPane.showMessageDialog(null, "Johnson chooses Austin Petersen as his VP");
 			}
-			if(i == 3) {
+			if(i > 90 && i <= 99) {
 				s.changeLib("Johnson", -.05);
 				s.changeLib("Trump", .01);
 				s.changeLib("Clinton", .03);
@@ -339,7 +339,7 @@ public class Events {
 				s.California.changeRep(-.01);
 				JOptionPane.showMessageDialog(null, "Johnson chooses John MacAfee as his VP");
 			}
-			if(i == 4) {
+			if(i > 99) {
 				s.changeLib("Johnson", -.07);
 				s.changeLib("Trump", .02);
 				s.changeLib("Clinton", .03);
@@ -365,23 +365,23 @@ public class Events {
 		if(candidate.equals("Johnson")) {
 			if(i == 1) {
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("Johnson", s);
 			}
 			if(i == 2) {
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("Johnson", s);
 			}
 			if(i == 3) {
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("Johnson", s);
 			}
 			if(i == 4) {
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("Johnson", s);
 			}
 		}
 		else {
-			if(i == 1) {
+			if(i > 1) {
 				new ResultsPage(s);
 			}
 			if(i == 2) {
@@ -408,7 +408,7 @@ public class Events {
 				s.Texas.changeRep(-.01);
 				s.Texas.changeLib(-.01);
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("McMullin", s);
 			}
 			if(i == 2) {
 				s.changeCon("McMullin", -.02);
@@ -420,7 +420,7 @@ public class Events {
 				s.California.changeMcM(.01);
 				s.California.changeRep(-.01);
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("McMullin", s);
 			}
 			if(i == 3) {
 				s.changeCon("McMullin", .04);
@@ -436,7 +436,7 @@ public class Events {
 				s.Utah.changeRep(-.03);
 				s.Utah.changeDem(-.02);
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("McMullin", s);
 			}
 			if(i == 4) {
 				s.changeCon("McMullin", .08);
@@ -452,11 +452,11 @@ public class Events {
 				s.South_Carolina.changeLib(-.01);
 				s.South_Carolina.changeDem(-.01);
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("McMullin", s);
 			}
 		}
 		else {
-			if(i == 1) {
+			if(i <= 50) {
 				s.changeCon("McMullin", .03);
 				s.changeCon("Trump", -.02);
 				s.changeCon("Johnson", -.01);
@@ -467,7 +467,7 @@ public class Events {
 				s.Texas.changeLib(-.01);
 				JOptionPane.showMessageDialog(null, "McMullin chooses Mindy Finn as his VP");
 			}
-			if(i == 2) {
+			if(i > 50 && i <= 55) {
 				s.changeCon("McMullin", -.02);
 				s.changeCon("Johnson", .02);
 				s.changeMod("McMullin", -.01);
@@ -478,7 +478,7 @@ public class Events {
 				s.California.changeRep(-.01);
 				JOptionPane.showMessageDialog(null, "McMullin chooses Nathan Johnson as his VP");								
 			}
-			if(i == 3) {
+			if(i > 55 && i <= 85) {
 				s.changeCon("McMullin", .04);
 				s.changeCon("Trump", -.02);
 				s.changeCon("Johnson", -.02);
@@ -493,7 +493,7 @@ public class Events {
 				s.Utah.changeDem(-.02);
 				JOptionPane.showMessageDialog(null, "McMullin chooses Greg Bell as his VP");
 			}
-			if(i == 4) {
+			if(i > 85) {
 				s.changeCon("McMullin", .08);
 				s.changeCon("Trump", -.07);
 				s.changeCon("Johnson", -.01);
@@ -514,36 +514,119 @@ public class Events {
 	public void se1(int i) {
 		if(candidate.equals("Stein")) {
 			if(i == 1) {
+				s.changeCon("Stein", -.03);
+				s.changeCon("Clinton", .02);
+				s.changeCon("Johnson", .01);
+				s.changeMod("Stein", -.02);
+				s.changeMod("Clinton", .01);
+				s.changeMod("Johnson", .01);
+				s.changeLib("Stein", -.01);
+				s.changeLib("Clinton", .01);
+				s.New_York.changeGreen(-.01);
+				s.New_York.changeDem(.01);
+				s.Michigan.changeGreen(.01);
+				s.Michigan.changeDem(-.01);
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("Stein", s);
 			}
 			if(i == 2) {
+				s.changeCon("Stein", -.02);
+				s.changeCon("Clinton", .01);
+				s.changeCon("Johnson", .01);
+				s.changeMod("Stein", -.01);
+				s.changeMod("Clinton", .01);
+				s.changeLib("Stein", .03);
+				s.changeLib("Clinton", -.03);
+				s.New_York.changeGreen(.03);
+				s.New_York.changeDem(-.03);
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("Stein", s);
 			}
 			if(i == 3) {
+				s.changeCon("Stein", .02);
+				s.changeCon("Trump", -.01);
+				s.changeCon("Johnson", -.01);
+				s.changeMod("Stein", .05);
+				s.changeMod("Clinton", -.03);
+				s.changeMod("Trump", -.01);
+				s.changeMod("Johnson", -.01);
+				s.changeLib("Stein", .04);
+				s.changeLib("Clinton", -.03);
+				s.changeLib("Johnson", -.01);
+				s.Minnesota.changeGreen(.09);
+				s.Minnesota.changeDem(-.04);
+				s.Minnesota.changeRep(-.03);
+				s.Minnesota.changeLib(-.02);
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("Stein", s);
 			}
 			if(i == 4) {
-				s.changeLib("Clinton", -.3);
-				s.changeLib("Stein", .1);
-				s.changeLib("Johnson", .2);
+				s.changeCon("Stein", -.02);
+				s.changeCon("Clinton", .02);
+				s.changeMod("Stein", -.02);
+				s.changeCon("Clinton", .02);
+				s.changeLib("Stein", .02);
+				s.changeLib("Clinton", -.02);
+				s.Georgia.changeGreen(.02);
+				s.Georgia.changeDem(-.02);
 				eventFrame.dispose();
-				new ResultsPage(s);
+				new ElectionPage("Stein", s);
 			}
 		}
 		else {
-			if(i == 1) {
+			if(i <= 70) {
+				s.changeCon("Stein", -.03);
+				s.changeCon("Clinton", .02);
+				s.changeCon("Johnson", .01);
+				s.changeMod("Stein", -.02);
+				s.changeMod("Clinton", .01);
+				s.changeMod("Johnson", .01);
+				s.changeLib("Stein", -.01);
+				s.changeLib("Clinton", .01);
+				s.New_York.changeGreen(-.01);
+				s.New_York.changeDem(.01);
+				s.Michigan.changeGreen(.01);
+				s.Michigan.changeDem(-.01);
 				JOptionPane.showMessageDialog(null, "Stein chooses Ajamu Baraka as her VP");
 			}
-			if(i == 2) {
+			if(i > 70 && i <= 90) {
+				s.changeCon("Stein", -.02);
+				s.changeCon("Clinton", .01);
+				s.changeCon("Johnson", .01);
+				s.changeMod("Stein", -.01);
+				s.changeMod("Clinton", .01);
+				s.changeLib("Stein", .03);
+				s.changeLib("Clinton", -.03);
+				s.New_York.changeGreen(.03);
+				s.New_York.changeDem(-.03);
 				JOptionPane.showMessageDialog(null, "Stein chooses Howie Hawkins as her VP");								
 			}
-			if(i == 3) {
+			if(i > 90 && i <= 93) {
+				s.changeCon("Stein", .02);
+				s.changeCon("Trump", -.01);
+				s.changeCon("Johnson", -.01);
+				s.changeMod("Stein", .05);
+				s.changeMod("Clinton", -.03);
+				s.changeMod("Trump", -.01);
+				s.changeMod("Johnson", -.01);
+				s.changeLib("Stein", .04);
+				s.changeLib("Clinton", -.03);
+				s.changeLib("Johnson", -.01);
+				s.Minnesota.changeGreen(.09);
+				s.Minnesota.changeDem(-.04);
+				s.Minnesota.changeRep(-.03);
+				s.Minnesota.changeLib(-.02);
 				JOptionPane.showMessageDialog(null, "Stein chooses Jesse Ventura as her VP");
 			}
-			if(i == 4) {
+			if(i > 93) {
+				s.changeCon("Stein", -.02);
+				s.changeCon("Clinton", .02);
+				s.changeMod("Stein", -.02);
+				s.changeCon("Clinton", .02);
+				s.changeLib("Stein", .02);
+				s.changeLib("Clinton", -.02);
+				s.Georgia.changeGreen(.02);
+				s.Georgia.changeDem(-.02);
 				JOptionPane.showMessageDialog(null, "Stein chooses Cynthia McKinney as her VP");
 			}
 		}
