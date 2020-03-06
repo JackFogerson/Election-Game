@@ -364,6 +364,20 @@ public class Events {
 	public void je2(int i) {
 		if(candidate.equals("Johnson")) {
 			if(i == 1) {
+				s.New_Mexico.changeLib(.3);
+				s.New_Mexico.changeDem(-.3);
+				s.Alaska.changeLib(.4);
+				s.Alaska.changeRep(-.4);
+				s.Utah.changeMcM(.3);
+				s.Utah.changeDem(-.3);
+				s.Washington_D_C.changeGreen(.6);
+				s.Washington_D_C.changeDem(-.6);
+				s.changeCon("Johnson", .2);
+				s.changeCon("Trump", .03);
+				s.changeCon("Clinton", -.23);
+				s.changeMod("Johnson", .5);
+				s.changeMod("Trump", -.25);
+				s.changeMod("Clinton", -.25);
 				eventFrame.dispose();
 				new ElectionPage("Johnson", s);
 			}
