@@ -1750,11 +1750,11 @@ public class ResultsPage {
         
         double RKS1 = 65.9 * ((s.Kansas.getRep()/56.7)/2);
         double LKS1 = 7.5 * ((s.Kansas.getLib()/4.7)/2);                
-        if(RSD1 > LKS1){
+        if(RKS1 > LKS1){
             RH = RH + 1;
             s.Kansas.addMember("r");
         }   
-        else if(LKS1 > RSD1){
+        else if(LKS1 > RKS1){
             DH = DH + 1;
             s.Kansas.addMember("l");
         } 
@@ -1805,7 +1805,93 @@ public class ResultsPage {
         }
         
         s.Oklahoma.RH = 1;
-        //next to add: Oklahoma
+        double ROK2 = 70.6 * ((s.Oklahoma.getRep()/65.3)/2);
+        double DOK2 = 23.2 * ((s.Oklahoma.getDem()/28.9)/2);    
+        if(ROK2 > DOK2){
+            RH = RH + 1;
+            s.Oklahoma.addMember("r");
+        }   
+        else if(DOK2 > ROK2){
+            DH = DH + 1;
+            s.Oklahoma.addMember("d");
+        } 
+        double ROK3 = 78.3 * ((s.Oklahoma.getRep()/65.3)/2);
+        double DOK3 = 21.7 * ((s.Oklahoma.getDem()/28.9)/2);    
+        if(ROK3 > DOK3){
+            RH = RH + 1;
+            s.Oklahoma.addMember("r");
+        }   
+        else if(DOK3 > ROK3){
+            DH = DH + 1;
+            s.Oklahoma.addMember("d");
+        } 
+        double ROK4 = 69.6 * ((s.Oklahoma.getRep()/65.3)/2);
+        double DOK4 = 26.1 * ((s.Oklahoma.getDem()/28.9)/2);  
+        double LOK4 = 4.3 * ((s.Oklahoma.getLib()/5.8)/2);                
+        if(ROK4 > DOK4 && ROK4 > LOK4){
+            RH = RH + 1;
+            s.Oklahoma.addMember("r");
+        }   
+        else if(DOK4 > ROK4 && DOK4 > LOK4){
+            DH = DH + 1;
+            s.Oklahoma.addMember("d");
+        } 
+        else if(LOK4 > ROK4 && LOK4 > DOK4){
+            LH = LH + 1;
+            s.Oklahoma.addMember("l");
+        }
+        double ROK5 = 57.1 * ((s.Oklahoma.getRep()/65.3)/2);
+        double DOK5 = 36.8 * ((s.Oklahoma.getDem()/28.9)/2);  
+        double LOK5 = 6.1 * ((s.Oklahoma.getLib()/5.8)/2);                
+        if(ROK5 > DOK5 && ROK5 > LOK5){
+            RH = RH + 1;
+            s.Oklahoma.addMember("r");
+        }   
+        else if(DOK5 > ROK5 && DOK5 > LOK5){
+            DH = DH + 1;
+            s.Oklahoma.addMember("d");
+        } 
+        else if(LOK5 > ROK5 && LOK5 > DOK5){
+            LH = LH + 1;
+            s.Oklahoma.addMember("l");
+        }
+        
+        double RTX1 = 73.9 * ((s.Texas.getRep()/52.2)/2);
+        double DTX1 = 24.1 * ((s.Texas.getDem()/43.2)/2);  
+        double LTX1 = 2 * ((s.Texas.getLib()/3.2)/2);                
+        if(RTX1 > DTX1 && RTX1 > LTX1){
+            RH = RH + 1;
+            s.Texas.addMember("r");
+        }   
+        else if(DTX1 > RTX1 && DTX1 > LTX1){
+            DH = DH + 1;
+            s.Texas.addMember("d");
+        } 
+        else if(LTX1 > RTX1 && LTX1 > DTX1){
+            LH = LH + 1;
+            s.Texas.addMember("l");
+        }
+        double RTX2 = 60.6 * ((s.Texas.getRep()/52.2)/2);
+        double DTX2 = 36 * ((s.Texas.getDem()/43.2)/2);       
+        double LTX2 = 2.3 * ((s.Texas.getLib()/3.2)/2);
+        double GTX2 = 1.1 * ((s.Texas.getGreen()/0.8)/2);
+        if(RTX2 > DTX2 && RTX2 > LTX2 && RTX2 > GTX2){
+            RH = RH + 1;
+            s.Texas.addMember("r");
+        }   
+        else if(DTX2 > RTX2 && DTX2 > LTX2 && DTX2 > GTX2){
+            DH = DH + 1;
+            s.Texas.addMember("d");
+        }        
+        else if(LTX2 > RTX2 && LTX2 > DTX2 && LTX2 > GTX2){
+            LH = LH + 1;
+            s.Texas.addMember("l");
+        }    
+        else if(GTX2 > RTX2 && GTX2 > DTX2 && GTX2 > LTX2){
+            GH = GH + 1;
+            s.Texas.addMember("g");
+        }              
+        //next to add: texas
 	}
 	
 	//baseline method for house vote to elect president
